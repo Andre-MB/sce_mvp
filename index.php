@@ -49,7 +49,8 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
 <body>
 
     <nav style="width: 100vw; height: 6vh; background: #6F0000; box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25); display: flex; align-items: center;">
-        <img src="imagens/a1.png" height="40vh" alt="">
+        <img src="imagens/logo
+        .png" height="40vh" alt="">
     </nav>
 
     <main>
