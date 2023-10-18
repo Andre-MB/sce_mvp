@@ -1,6 +1,6 @@
 <?php
-include('protect.php');
-include('conexao.php');
+include('../helpers/protect.php');
+include('../helpers/conexao.php');
 
 $sql = "SELECT * FROM produtos ORDER BY id ASC";
 
@@ -19,7 +19,7 @@ $query = mysqli_query($mysqli, $sql);
 
 <body>
 
-    <header style="width: 100vw; height: 6vh; background: #6F0000; box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25); display: flex; align-items: center; justify-content:space-between;">
+    <header style="width: 100vw; height:6vh; background: #6F0000; box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25); display: flex; align-items: center; justify-content:space-between;">
         <img src="imagens/a1.png" height="40vh" alt="">
         <img src="imagens/Frame 13.png" height="40vh" alt="">
     </header>
@@ -70,7 +70,7 @@ $query = mysqli_query($mysqli, $sql);
     <div id="add" class="modal  ">
         <span onclick="document.getElementById('add').style.display='none'" class="close" title="Close Modal">&times;</span>
 
-        <form class="modal-content animate" method="POST" action="insert.php">
+        <form class="modal-content animate" method="POST" action="../helpers/insert.php">
             <div class="container1">
                 <div class="hed">
                     <h3>Adicionando Produto</h3>
@@ -124,15 +124,15 @@ $query = mysqli_query($mysqli, $sql);
         /* Main */
 
         main {
+            height: 90vh;
             display: flex;
             justify-content: center;
             padding-top: 10px;
         }
 
         .container {
-            height: auto;
             width: 97%;
-            min-height: 89vh;
+            height: 90vh;
             border-radius: 20px;
             padding: 10px;
         }
@@ -165,7 +165,6 @@ $query = mysqli_query($mysqli, $sql);
 
 
         /* modal */
-
         .modal {
             display: none;
             position: fixed;
@@ -222,32 +221,16 @@ $query = mysqli_query($mysqli, $sql);
 
         /* Tabela */
         .tabl {
-            height: auto;
+            height: 95%;
             margin-top: 10px;
             overflow-y: scroll;
         }
 
-        html ::-webkit-scrollbar {
-            width: 25px;
-        }
-
-        html ::-webkit-scrollbar-thumb {
-            border-radius: 50px;
-            border: 4px solid #ededed;
-            background: #6F0000;
-        }
-
-        html ::-webkit-scrollbar-track {
-            /* fundo */
-            border-radius: 50px;
-            background: #ededed;
-        }
 
         .table {
             width: 98%;
             border-collapse: collapse;
             text-align: left;
-
         }
 
         th {
@@ -277,12 +260,29 @@ $query = mysqli_query($mysqli, $sql);
             padding-left: 5px;
         }
 
+        html ::-webkit-scrollbar {
+            width: 25px;
+        }
+
+        html ::-webkit-scrollbar-thumb {
+            border-radius: 50px;
+            border: 4px solid #ededed;
+            background: #6F0000;
+        }
+
+        html ::-webkit-scrollbar-track {
+            /* fundo */
+            border-radius: 50px;
+            background: #ededed;
+        }
+
         @media (max-width:412px) {
             nav {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
+                gap: 10px;
             }
 
             nav>div {
@@ -290,6 +290,15 @@ $query = mysqli_query($mysqli, $sql);
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
+                gap: 10px;
+            }
+
+            .tabl {
+                height: 80%;
+            }
+
+            th {
+                font-size: 0.6em;
             }
         }
     </style>

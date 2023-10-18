@@ -1,5 +1,5 @@
 <?php
-include('conexao.php');
+include('../sce_mvp/app/helpers/conexao.php');
 
 if (isset($_POST['email']) || isset($_POST['senha'])) {
 
@@ -28,7 +28,7 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
             $_SESSION['id'] = $usuario['id'];
             $_SESSION['nome'] = $usuario['nome'];
 
-            header("Location: estoque.php");
+            header("Location: app/views/estoque.php");
         } else {
             echo "Falha ao logar! E-mail ou senha incorretos";
         }

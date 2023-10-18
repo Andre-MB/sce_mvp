@@ -1,5 +1,4 @@
 <?php
-
 $usuario = 'root';
 $senha = '';
 $database = 'sce_teste';
