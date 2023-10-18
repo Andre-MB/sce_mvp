@@ -67,7 +67,7 @@ $query = mysqli_query($mysqli, $sql);
 
 
     <!-- Modal de Adicionar Produto -->
-    <div id="add" class="modal ">
+    <div id="add" class="modal  ">
         <span onclick="document.getElementById('add').style.display='none'" class="close" title="Close Modal">&times;</span>
 
         <form class="modal-content animate" method="POST" action="insert.php">
@@ -90,7 +90,7 @@ $query = mysqli_query($mysqli, $sql);
     </div>
 
     <!-- Modal de Vender Produto  -->
-    <!-- <div id="ven" class="modal">
+    <!-- <div id="ven" clasxcs="modal">
         <span onclick="document.getElementById('ven').style.display='none'" class="close" title="Close Modal">&times;</span>
 
         <form class="modal-content  animate" method="POST" action="">
@@ -130,6 +130,7 @@ $query = mysqli_query($mysqli, $sql);
         }
 
         .container {
+            height: auto;
             width: 97%;
             min-height: 89vh;
             border-radius: 20px;
@@ -221,8 +222,9 @@ $query = mysqli_query($mysqli, $sql);
 
         /* Tabela */
         .tabl {
+            height: auto;
             margin-top: 10px;
-            overflow-y: auto;
+            overflow-y: scroll;
         }
 
         html ::-webkit-scrollbar {
