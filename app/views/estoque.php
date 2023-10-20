@@ -27,9 +27,9 @@ $query = mysqli_query($mysqli, $sql);
 
 <body>
 
-    <header style="width: 100vw; height:6vh; background: #6F0000; box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25); display: flex; align-items: center; justify-content:space-between;">
-        <img src="imagens/a1.png" height="40vh" alt="">
-        <img src="imagens/Frame 13.png" height="40vh" alt="">
+    <header style="width: 100vw; height:6vh; background: #6F0000; box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25); display: flex; align-items: center; justify-content:space-between; padding-left:10px;">
+        <img src="../../img/logo_recomex2.png" height="40vh" alt="">
+        <img src="../../img/icone_estoque.png" height="40vh" alt="">
     </header>
 
     <main>
@@ -69,7 +69,7 @@ $query = mysqli_query($mysqli, $sql);
                             echo "<td>"   . $data['quantidade'] . ' ' . $data['unidade_de_medida'] . "</td>";
                             echo "<td>" . 'R$ '  . number_format($res, 2, ',') . "</td>";
                             echo "<td>" . 'R$ '  . number_format($re, 2, ',') . "</td>";
-                            echo "<td class=\"ult\" > <img  src=\"imagens/charm_menu-kebab.svg\" height=\"15vh\" > </td>";
+                            echo "<td class=\"ult\" > <img  src=\"../../img/3_pontinhos.svg\" height=\"15vh\" > </td>";
                         }
                         ?>
                     </tbody>
