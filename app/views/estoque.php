@@ -1,8 +1,16 @@
 <?php
+
 include('../helpers/protect.php');
 include('../helpers/conexao.php');
 
-$sql = "SELECT * FROM produtos ORDER BY id ASC";
+$filtro_sql = "";
+
+if ($_POST["filtro"] != null) {
+    $filtro = $_POST["filtro"];
+    $filtro_sql = "WHERE id='$filtro' OR descricao LIKE '%$filtro%' OR nome LIKE '%$filtro%' ";
+}
+
+$sql = "SELECT * FROM produtos $filtro_sql";
 
 $query = mysqli_query($mysqli, $sql);
 
@@ -31,7 +39,9 @@ $query = mysqli_query($mysqli, $sql);
                     <button class="btn-add" onclick="document.getElementById('add').style.display='block'">Adicionar produto</button>
                     <button class="btn-ven" onclick="document.getElementById('ven').style.display='block'">Vender produto </button>
                 </div>
-                <input type=" search" name="" id="">
+                <form method="POST" action="">
+                    <input type="text" name="filtro">
+                </form>
             </nav>
 
             <div class="tabl">
@@ -71,13 +81,14 @@ $query = mysqli_query($mysqli, $sql);
 
     <!-- Modal de Adicionar Produto -->
     <div id="add" class="modal">
-        <span onclick="document.getElementById('add').style.display='none'" class="close" title="Close Modal">&times;</span>
-
         <form class="modal-content animate" method="POST" action="../helpers/insert.php">
             <div class="container1">
                 <div class="hed">
-                    <h3>Adicionando Produto</h3>
-                    <button type="submit">Salvar</button>
+                    <h3>Adicionar Produto</h3>
+                    <div>
+                        <button class="can" onclick="document.getElementById('add').style.display='none'">Cancelar</button>
+                        <button class="salv" type="submit">Salvar</button>
+                    </div>
                 </div>
 
                 <div class="man">
@@ -96,20 +107,23 @@ $query = mysqli_query($mysqli, $sql);
 
     <!-- Modal de Vender Produto  -->
     <div id="ven" class="modal">
-        <span onclick="document.getElementById('ven').style.display='none'" class="close" title="Close Modal">&times;</span>
-
         <form class="modal-content  animate" method="POST" action="">
             <div class="container1">
                 <div class="hed">
                     <h3>Vender Produto</h3>
-                    <button type="submit">Salvar</button>
+                    <div>
+                        <button class="can" onclick="document.getElementById('ven').style.display='none'">Cancelar</button>
+                        <button class="salv" type="submit">Salvar</button>
+                    </div>
                 </div>
 
-                <input type="text" placeholder="Nome do Produto" name="name" required>
-                <input type="text" placeholder="UNID-Unidade" name="unidade_de_medida" required>
-                <input type="text" placeholder="Quantidade" name="quantidade" required>
-                <input type="text" placeholder="Custo(Preço de compra)" name="custo" required>
-                <input type="text" placeholder="Preço de Venda" name="preco" required>
+                <div class="man_ven">
+                    <input type="text" placeholder="Nome do Produto" name="name" required>
+                    <input type="text" placeholder="UNID-Unidade" name="unidade_de_medida" required>
+                    <input type="text" placeholder="Quantidade" name="quantidade" required>
+                    <input type="text" placeholder="Custo(Preço de compra)" name="custo" required>
+                    <input type="text" placeholder="Preço de Venda" name="preco" required>
+                </div>
             </div>
         </form>
     </div>
@@ -201,12 +215,23 @@ $query = mysqli_query($mysqli, $sql);
             color: #7a7a7a;
         }
 
-        .hed>button {
+        .salv {
             background-color: #006653;
             border: none;
             border-radius: 15px;
             color: #fff;
             padding: 5px;
+            cursor: pointer;
+        }
+
+        .can {
+            background-color: #7a7a7a;
+            border: none;
+            border-radius: 15px;
+            color: #fff;
+            padding: 5px;
+            margin-right: 20px;
+            cursor: pointer;
         }
 
         .man {
@@ -248,6 +273,13 @@ $query = mysqli_query($mysqli, $sql);
         }
 
         .man>input {
+            background-color: rgba(217, 217, 217, 0.6);
+            border: 1px solid #7B7B7B;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .man_ven>input {
             background-color: rgba(217, 217, 217, 0.6);
             border: 1px solid #7B7B7B;
             border-radius: 5px;
