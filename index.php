@@ -50,14 +50,14 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
 <body>
 
     <nav style="width: 100vw; height: 6vh; background: #6F0000; box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25); display: flex; align-items: center;">
-        <img src="imagens/a1.png" height="40vh" alt="">
+        <img src="../sce_mvp/img/logo_recomex2.png" height=" 40vh" alt="">
     </nav>
 
     <main>
 
         <div class="p">
 
-            <form action="" method="POST">
+            <sform action="" method="POST">
 
                 <h1>Entrar</h1>
 
@@ -68,11 +68,11 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
                 <input type="password" name="senha">
 
                 <button type="submit">Enviar</button>
-            </form>
+            </sform>
 
             <div class="l"><span></span></div>
 
-            <img src="imagens/Rectangle10.png" width=" 300px" height="300px" alt="">
+            <img src="../sce_mvp/img/Rectangle10.png" width=" 300px" height="300px" alt="">
         </div>
 
     </main>
