@@ -58,6 +58,19 @@ main {
   padding: 5px 20px 5px 10px;
 }
 
+.sub_menu {
+  background-color: #ffffff;
+  display: none;
+  flex-direction: column;
+  z-index: 1;
+  position: absolute;
+  padding: 5px;
+  right: 6%;
+  overflow: auto;
+  border: solid #000 1px;
+}
+
+
 /* modal */
 .modal {
   display: none;
