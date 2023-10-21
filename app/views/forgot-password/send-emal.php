@@ -1,4 +1,7 @@
+<?php
+include("../../helpers/conexao.php")
 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,8 +20,13 @@
 </div>
 <h1 class="message">Digite o seu e-mail no campo abaixo e lhe
 enviaremos um código</h1>
-
 </div>
+
+<div class="input">
+<input class="send-email" type="email" placeholder="email">
+<button id="button_enter">Enviar</button>
+</div>
+
 
 
 </body>
