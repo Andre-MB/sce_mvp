@@ -8,11 +8,13 @@
 </head>
 <body>
 
-    <header>
+    <header id="nav-home">
     <nav>
-        <a class="button-click" href="home.php">
-        <img src="../../../img/logo_recomex2.png" height=" 40vh" alt="">
-        </a>
+        <div class="button-logo">
+            <a href="home.php">
+            <img src="../../../img/logo_recomex2.png" height=" 40vh" alt="">
+            </a>
+        </div>
         
         <div class="list">
             <ul>
@@ -27,9 +29,12 @@
                 <li><a href="">Contato</a></li>
             </ul>
         </div>
+        
+        <a href="../../../index.php">
         <button class="button-home-entrar">
             Entrar
         </button>
+        </a>
     </nav>
     </header>
     

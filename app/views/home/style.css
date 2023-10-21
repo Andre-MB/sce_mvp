@@ -21,8 +21,8 @@ nav {
     align-items: center;
 }
 
-nav a{
-    margin-top: 0.5%;
+.button-logo {
+    margin-top: 0.4%;
 }
 
 .button-home-entrar {
@@ -37,6 +37,8 @@ nav a{
     transition: background-color,color 350ms;
     box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5);
 }
+
+
 
 .button-home-entrar:active {
     margin-left: 3px;
