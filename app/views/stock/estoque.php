@@ -71,7 +71,7 @@ $query = mysqli_query($mysqli, $sql);
                             echo "<td>"   . $data['quantidade'] . ' ' . $data['unidade_de_medida'] . "</td>";
                             echo "<td>" . 'R$ '  . number_format($res, 2, ',') . "</td>";
                             echo "<td>" . 'R$ '  . number_format($re, 2, ',') . "</td>";
-                            echo "<td class=\"ult\" > <div onclick=\"document.getElementById('sub_menu$id').style.display='block'\"> <img  src=\"../../../img/3_pontinhos.svg\" height=\"15vh\" > </div> <div id=\"sub_menu$id\" class=\"sub_menu\"><a>Editar</a><hr></hr><a>Excluir</a> </div></td>";
+                            echo "<td class=\"ult\" > <div onclick=\"document.getElementById('sub_menu$id').style.display='block'\"> <img  src=\"../../../img/3_pontinhos.svg\" height=\"15vh\" > </div> <div id=\"sub_menu$id\" class=\"sub_menu\"><a>Editar</a><hr></hr><a>Excluir</a></div> </td>";
                         }
                         ?>
                     </tbody>
@@ -133,6 +133,9 @@ $query = mysqli_query($mysqli, $sql);
     <script>
         var modal = document.getElementById('add');
         var modal2 = document.getElementById('ven');
+        var td = document.querySelectorAll('.ult');
+
+        console.log(td)
 
         window.onclick = function(event) {
 
@@ -143,10 +146,11 @@ $query = mysqli_query($mysqli, $sql);
             if (event.target === modal) {
                 modal.style.display = "none";
             }
+            if (event.target == td) {
+                console.log("dicid")
+            }
 
             console.log(event.target)
-
-
         }
     </script>
 
