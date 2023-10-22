@@ -71,10 +71,11 @@ $query = mysqli_query($mysqli, $sql);
                             echo "<td>"   . $data['quantidade'] . ' ' . $data['unidade_de_medida'] . "</td>";
                             echo "<td>" . 'R$ '  . number_format($res, 2, ',') . "</td>";
                             echo "<td>" . 'R$ '  . number_format($re, 2, ',') . "</td>";
-                            echo "<td class=\"ult\" > <div onclick=\"document.getElementById('sub_menu$id').style.display='block'\"> <img  src=\"../../../img/3_pontinhos.svg\" height=\"15vh\" > </div> <div id=\"sub_menu$id\" class=\"sub_menu\"><a>Editar</a><hr></hr><a>Excluir</a></div> </td>";
+                            echo "<td class=\"ult\" > <button></button><button></button> </td>";
                         }
                         ?>
                     </tbody>
+                    <button></button>
                 </table>
             </div>
         </div>
