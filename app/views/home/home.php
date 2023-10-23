@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Recomex</title>
+    <link rel="stylesheet" href="style-home.css">
+    <title>Recomex | Etiquetas em São Luís</title>
 </head>
 <body>
 
-    <header id="nav-home">
-    <nav>
+    
+    <nav id="nav-home">
         <div class="button-logo">
             <a href="home.php">
             <img src="../../../img/logo_recomex2.png" height=" 40vh" alt="">
@@ -36,7 +36,7 @@
         </button>
         </a>
     </nav>
-    </header>
+    
     
     <section id="banner">
         <div class="banner-test">
@@ -100,6 +100,44 @@
         </div>
     </section>
 
+   <section id="about-home">
+
+        <div class="about-content">
+            
+                <img src="../../../img/loja.png" alt="">               
+                <h3 class="about-title">Loja de Etiquetas em São Luis</h3>               
+                <p class="about-text">Nossa distribuidora em São Luis oferece uma variedade de etiquetas e etiquetadoras das melhores marcas. Recomex é a melhor loja da cidade. Com estoque diversificado, atendendo todos clientes. Não há o que você esteja procurando, que não tenhamos em nossas prateleiras.</p>
+            
+        </div>
+
+        <div class="about-content">
+            
+                <img src="../../../img/equipe.png" alt="">               
+                <h3 class="about-title">Melhor Equipe de Atendimento</h3>               
+                <p class="about-text">Nossa equipe é reconhecida pelo bom humor e disponibilidade, atendemos sempre com um sorriso no rosto. Estamos à disposição para atender aos nossos clientes, tirando todas as dúvidas e oferecendo o produto certo. Não procure mais, venha direto aqui!</p>
+            
+        </div>
+
+        <div class="about-content">
+            
+                <img src="../../../img/estoque.png" alt="">               
+                <h3 class="about-title">Estoque de Primeira Linha</h3>               
+                <p class="about-text">Nossa missão é oferecer produtos de primeira qualidade. As melhores marcas do mercado para todos os itens que você precisa. Venha nos visitar, excelente atendimento com o preço que você quer pagar.</p>
+            
+        </div>
+    </section>
+
+    <section id="location-home">
+        <div class="google-maps-home">
+            <p>Localização</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1992.9048207841915!2d-44.20485355619896!3d-2.5686093992341026!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7f691225f9512e9%3A0x313e0a351503da42!2sRecomex!5e0!3m2!1spt-BR!2sbr!4v1698089433956!5m2!1spt-BR!2sbr" width="1000" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <footer id="footer-home">
+       aaa
+    </footer>
+    
     
 </body>
 </html>
