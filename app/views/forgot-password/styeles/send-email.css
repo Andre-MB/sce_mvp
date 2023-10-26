@@ -5,23 +5,27 @@
   margin: 0;
   padding: 0;
 }
+body{
+	overflow-y: hidden;
+	justify-content: center;
+}
 
 .banner-shield{
   background-color: silver;
   width: 80%;
   display: flex;
   margin: auto;
-  margin-top: 10rem;
+  margin-top: 5rem;
   padding: 2%;
-  border-radius: 100px;
+  border-radius: 50rem;
   justify-content: center;
   align-items: center;
 
 }
 
 .banner-shield > img {
- width: 9rem;
- margin: 10px;
+ width: 5rem;
+
 }
 
 .banner-shield > p{

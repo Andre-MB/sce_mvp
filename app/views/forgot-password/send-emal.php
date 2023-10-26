@@ -1,33 +1,19 @@
 <?php
-include("../../helpers/conexao.php")
+
+include("./app/helpers/conexao.php");
+
+if(isset($_POST['ok'])){
+
+	$novasenha = substr(md5(time()),0 , 6);
+
+
+}
+
+echo substr(md5(time()),0 , 6);
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/styles/global.css">
-  <link rel="stylesheet" href="styeles/send-email.css">
-  <title>Document</title>
-</head>
-<body>
-<div class="card_send-email">
-<div class= "banner-shield">
-  <img src="assets/shield.svg" alt="">
-  <p>Redefinição de senha de acesso</p>
-</div>
-<h1 class="message">Digite o seu e-mail no campo abaixo e lhe
-enviaremos um código</h1>
-</div>
-
-<div class="input">
-<input class="send-email" type="email" placeholder="email">
-<button id="button_enter">Enviar</button>
-</div>
-
-
-
-</body>
-</html>
+<form action="">
+	<input type="email" name="" id="" placeholder="Seu email">
+	<input type="submit" value="ok" name="ok">
+</form>
