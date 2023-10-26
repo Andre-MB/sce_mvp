@@ -10,7 +10,8 @@
   background-color: silver;
   width: 80%;
   display: flex;
-  margin: 150px  auto;
+  margin: auto;
+  margin-top: 10rem;
   padding: 2%;
   border-radius: 100px;
   justify-content: center;
@@ -19,18 +20,67 @@
 }
 
 .banner-shield > img {
- width: 100px;
+ width: 9rem;
  margin: 10px;
 }
 
 .banner-shield > p{
   font-family: 'Poppins', sans-serif;
-  font-size: 30px;
+  font-size: 2.5rem;
   font-weight: 400;
   text-align: center;
 
 }
 
 .message{
-  font-size: 40px;
+	margin: 10% 20%;
+
+	text-align: center;
+  	font-size: 2.5rem;
+ 	font-weight: 400;
+	color: #6D6D6D;
+}
+
+.input{
+
+	height: 10vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 5%;
+
+
+}
+
+.input > .send-email{
+	width: 60%;
+	margin: 3%;
+	padding: 2%;
+	border: 0;
+	background-color: #7e7e7e98;
+	border-radius: 5vh;
+	display: flex;
+	align-items: center;
+	font-size: 1.5rem;
+	color: aliceblue;
+
+}
+
+.input > .send-email::placeholder{
+	font-size: 1.5rem;
+	color: aliceblue;
+
+}
+
+.input > #button_enter {
+	background-color: #6F0000;
+	color: #F0F0F0;
+	font-size: 1.5rem;
+	font-weight: 600;
+	width: 20%;
+	padding: 1%;
+	border-radius: 5vh;
+
+
 }
