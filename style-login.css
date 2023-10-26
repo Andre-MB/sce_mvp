@@ -1,0 +1,127 @@
+/* --CONFIGURAÇÕES GERAIS-- */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+#nav-home {   
+    padding: 5px;
+    justify-content: space-between;
+    width: 100%; 
+    height: 6vh;
+    background: #6F0000; 
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25); 
+    display: flex; 
+    align-items: center;
+    position: fixed;
+}
+
+.button-logo img{ 
+    vertical-align: middle;
+    width: 20vh;
+}
+
+main { 
+    width: 100vw;
+    height: 92vh;
+    display: flex; 
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center;
+}
+
+form {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+.p {
+    width: 80vw;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+.p h1{
+    font-size: 4vh;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* INPUTS */
+
+.text-inputs {
+    display: inline-block;
+    font-size: 15px;
+    margin-left: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #7a7a7a;
+    font-weight: 300;
+}
+
+
+.style-input {
+    width: 35vh;
+    padding: 15px;
+    font-size: 15px;
+    border: none;
+    border-radius: 15px;
+    background-color: #d9d9d9;
+    color: #fff;
+}
+
+.style-input::placeholder {
+    color: #fff;
+}
+
+.button-forget-password {
+    float: right;
+    text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #7a7a7a;
+}
+
+.button-forget-password:hover {
+    text-decoration: underline;
+}
+
+.button-login {
+    padding: 10px 30px;
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    background-color: #6F0000;
+    color: #fff;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 250ms;
+}
+
+.button-login:active {
+    margin-left: 3px;
+    margin-top: 3px;
+    box-shadow: none;
+}
+
+.button-login:hover {
+    color: #6F0000;
+    background-color: #ebebeb;
+}
+
+.l {
+    width: 1px;
+    height: 500px;
+    background-color: rgb(0, 0, 0);
+}

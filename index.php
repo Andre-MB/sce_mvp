@@ -44,17 +44,25 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Recomex</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-login.css">
 </head>
 
 <body>
 
-    <nav style="width: 100vw; height: 6vh; background: #6F0000; box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25); display: flex; align-items: center;">
+    <!-- <nav style="width: 100vw; height: 6vh; background: #6F0000; box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25); display: flex; align-items: center;">
         <img src="../sce_mvp/img/logo_recomex2.png" height=" 40vh" alt="">
         <img src="imagens/logo
         .png" height="40vh" alt="">
-    </nav>
+    </nav> -->
 
+    <nav id="nav-home">
+        
+            <a class="button-logo" href="app/views/home/home.php"> 
+                    <img src="img/logo_recomex2.png" alt="">
+            </a> 
+    </nav>        
+
+    
     <main>
 
         <div class="p">
@@ -62,60 +70,28 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
 
                 <h1>Entrar</h1>
 
-                <label for="email">E-mail:</label>
-                <input type="text" name="email">
-
-                <label for="password">Senha:</label>
-                <input type="password" name="senha">
-
-                <button type="submit">Enviar</button>
-				<a href="app/views/forgot-password/send-emal.php">Esqueceu a senha?</a><br>
+                <div class="email-login-page">
+                    <label class="text-inputs" for="email">E-mail:</label>
+                    <input class="style-input" type="text" name="email" placeholder="e-mail">
+                </div>
+                
+                <div class="password-login-page">
+                    <label class="text-inputs" for="password">Senha:</label>
+                    <a class="button-forget-password" href="app/views/forgot-password/send-emal.php">Esqueceu a senha?</a>
+                    <input class="style-input" type="password" name="senha" placeholder="senha">
+                </div>
+               
+                <button class="button-login" type="submit">Entrar</button>
+				
             </form>
 
             <div class="l"><span></span></div>
 
-            <img src="../sce_mvp/img/Rectangle10.png" width=" 300px" height="300px" alt="">
+            <img src="../sce_mvp/img/Rectangle10.png" width=" 400px" height="400px" alt="">
         </div>
 
     </main>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        main {
-            width: 100vw;
-            height: 92vh;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-        }
-
-        form {
-            width: 300px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .p {
-            width: 80vw;
-            height: 40vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 80px;
-        }
-
-        .l {
-            width: 1px;
-            height: 500px;
-            background-color: rgb(0, 0, 0);
-        }
-    </style>
 </body>
 
 </html>

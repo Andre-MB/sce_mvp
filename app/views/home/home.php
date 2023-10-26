@@ -6,15 +6,14 @@
     <link rel="stylesheet" href="style-home.css">
     <title>Recomex | Etiquetas em São Luís</title>
 </head>
-<body>
 
-    
+<body>
     <nav id="nav-home">
-        <div class="button-logo">
-            <a href="home.php">
-            <img src="../../../img/logo_recomex2.png" height=" 40vh" alt="">
-            </a>
-        </div>
+        
+            <a class="button-logo" href="#"> 
+                    <img src="../../../img/logo_recomex2.png" alt="">
+            </a> 
+        
         
         <div class="list">
             <ul>
@@ -36,7 +35,6 @@
         </button>
         </a>
     </nav>
-    
     
     <section id="banner">
         <div class="banner-test">
