@@ -43,7 +43,7 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login - Recomex</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -69,6 +69,7 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
                 <input type="password" name="senha">
 
                 <button type="submit">Enviar</button>
+				<a href="app/views/forgot-password/send-emal.php">Esqueceu a senha?</a><br>
             </form>
 
             <div class="l"><span></span></div>
