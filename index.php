@@ -50,18 +50,9 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
 <body>
 
     <nav style="width: 100vw; height: 6vh; background: #6F0000; box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25); display: flex; align-items: center;">
-<<<<<<< HEAD
-
-        <img src="../sce_mvp/img/logo_recomex2.png" height=" 40vh" alt="">
-
-        <img src="imagens/logo
-        .png" height="40vh" alt="">
-
-=======
         <img src="../sce_mvp/img/logo_recomex2.png" height=" 40vh" alt="">
         <img src="imagens/logo
         .png" height="40vh" alt="">
->>>>>>> 26614b1d27034b8840dd93c5dca34202f9a7af47
     </nav>
 
     <main>
