@@ -71,7 +71,7 @@ $query = mysqli_query($mysqli, $sql);
                             echo "<td>"   . $data['quantidade'] . ' ' . $data['unidade_de_medida'] . "</td>";
                             echo "<td>" . 'R$ '  . number_format($res, 2, ',') . "</td>";
                             echo "<td>" . 'R$ '  . number_format($re, 2, ',') . "</td>";
-                            echo "<td class=\"ult\" > <button></button><button></button> </td>";
+                            echo "<td class=\"ult\" > <button>+</button> <button>-</button> </td>";
                         }
                         ?>
                     </tbody>

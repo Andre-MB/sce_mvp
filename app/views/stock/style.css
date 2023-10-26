@@ -58,18 +58,6 @@ main {
   padding: 5px 20px 5px 10px;
 }
 
-.sub_menu {
-  background-color: #ffffff;
-  display: none;
-  flex-direction: column;
-  z-index: 1;
-  position: absolute;
-  padding: 5px;
-  right: 6%;
-  overflow: auto;
-  border: solid #000 1px;
-}
-
 
 /* modal */
 .modal {
@@ -230,7 +218,7 @@ td {
 }
 
 .ult {
-  padding-top: 5px;
+  padding: 5px;
   text-align: center;
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
@@ -243,7 +231,7 @@ td {
 }
 
 html ::-webkit-scrollbar {
-  width: 25px;
+  width: 20px;
 }
 
 html ::-webkit-scrollbar-thumb {
