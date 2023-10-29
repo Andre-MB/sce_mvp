@@ -76,6 +76,7 @@
             </a>
         </div>
 
+
         <div class="products">
             <a href="">
                 <img src="../../../img/bobina.png" alt="">
@@ -101,10 +102,10 @@
 
     <section id="about-home">
         <div class="about-content">
-
             <img src="../sce_mvp/img/loja.png" alt="">
             <h3 class="about-title">Loja de Etiquetas em São Luis</h3>
             <p class="about-text">Nossa distribuidora em São Luis oferece uma variedade de etiquetas e etiquetadoras das melhores marcas. Recomex é a melhor loja da cidade. Com estoque diversificado, atendendo todos clientes. Não há o que você esteja procurando, que não tenhamos em nossas prateleiras.</p>
+
 
         </div>
 
