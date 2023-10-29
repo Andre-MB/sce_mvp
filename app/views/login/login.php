@@ -29,7 +29,7 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
             $_SESSION['id'] = $usuario['id'];
             $_SESSION['nome'] = $usuario['nome'];
 
-            header("Location: ../estoque.php");
+            header("Location: ../stock/estoque.php");
         } else {
             echo  "<script>alert('Falha ao logar! E-mail ou senha incorretos!')</script>";
         }
@@ -48,6 +48,7 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
 </head>
 
 <body>
+
 
     <!-- <nav style="width: 100vw; height: 6vh; background: #6F0000; box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25); display: flex; align-items: center;">
         <img src="../sce_mvp/img/logo_recomex2.png" height=" 40vh" alt="">
