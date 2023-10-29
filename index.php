@@ -1,97 +1,140 @@
-<?php
-include('../sce_mvp/app/helpers/conexao.php');
-
-if (isset($_POST['email']) || isset($_POST['senha'])) {
-
-    if (strlen($_POST['email']) == null) {
-        echo "Preencha seu e-mail";
-    } else if (strlen($_POST['senha']) == null) {
-        echo "Preencha sua senha";
-    } else {
-
-        $email = $mysqli->real_escape_string($_POST['email']);
-        $senha = $mysqli->real_escape_string($_POST['senha']);
-
-        $sql_code = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
-
-        $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
-
-        $quantidade = $sql_query->num_rows;
-
-        if ($quantidade == 1) {
-
-            $usuario = $sql_query->fetch_assoc();
-
-            if (!isset($_SESSION)) {
-                session_start();
-            }
-
-            $_SESSION['id'] = $usuario['id'];
-            $_SESSION['nome'] = $usuario['nome'];
-
-            header("Location: app/views/estoque.php");
-        } else {
-            echo "Falha ao logar! E-mail ou senha incorretos";
-        }
-    }
-}
-?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Recomex</title>
-    <link rel="stylesheet" href="style-login.css">
+    <link rel="stylesheet" href="style-home.css">
+    <title>Recomex | Etiquetas em São Luís</title>
 </head>
 
 <body>
-
-    <!-- <nav style="width: 100vw; height: 6vh; background: #6F0000; box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25); display: flex; align-items: center;">
-        <img src="../sce_mvp/img/logo_recomex2.png" height=" 40vh" alt="">
-        <img src="imagens/logo
-        .png" height="40vh" alt="">
-    </nav> -->
-
     <nav id="nav-home">
-        
-            <a class="button-logo" href="app/views/home/home.php"> 
-                    <img src="img/logo_recomex2.png" alt="">
-            </a> 
-    </nav>        
 
-    
-    <main>
+        <a class="button-logo" href="#">
+            <img src="../sce_mvp/img/logo_recomex2.png" alt="">
+        </a>
 
-        <div class="p">
-            <form action="" method="POST">
 
-                <h1>Entrar</h1>
+        <div class="list">
+            <ul>
+                <li><a href="">Sobre</a></li>
+            </ul>
 
-                <div class="email-login-page">
-                    <label class="text-inputs" for="email">E-mail:</label>
-                    <input class="style-input" type="text" name="email" placeholder="e-mail">
-                </div>
-                
-                <div class="password-login-page">
-                    <label class="text-inputs" for="password">Senha:</label>
-                    <a class="button-forget-password" href="app/views/forgot-password/send-emal.php">Esqueceu a senha?</a>
-                    <input class="style-input" type="password" name="senha" placeholder="senha">
-                </div>
-               
-                <button class="button-login" type="submit">Entrar</button>
-				
-            </form>
+            <ul>
+                <li><a href="">Localização</li>
+            </ul>
 
-            <div class="l"><span></span></div>
-
-            <img src="../sce_mvp/img/Rectangle10.png" width=" 400px" height="400px" alt="">
+            <ul>
+                <li><a href="">Contato</a></li>
+            </ul>
         </div>
 
-    </main>
+        <a href="../sce_mvp/app/views/login/login.php">
+            <button class="button-home-entrar">
+                Entrar
+            </button>
+        </a>
+    </nav>
 
+    <section id="banner">
+        <div class="banner-test">
+            <img src="../sce_mvp/img/banner-test.png" alt="">
+        </div>
+    </section>
+
+    <section id="section-products-home">
+        <div class="products">
+            <a href="">
+                <img src="../../../img/papel.png" alt="">
+            </a>
+            <a href="">
+                <p class="name-product">
+                    Etiqueta código de barras
+                </p>
+            </a>
+        </div>
+        <div class="products">
+            <a href="">
+                <img src="../../../img/impressora.png" alt="">
+            </a>
+            <a href="">
+                <p class="name-product">
+                    Impressora
+                </p>
+            </a>
+        </div>
+
+        <div class="products">
+            <a href="">
+                <img src="../../../img/calc.png" alt="">
+            </a>
+            <a href="">
+                <p class="name-product">
+                    Calculadora De Mesa com Bobina
+                </p>
+            </a>
+        </div>
+
+        <div class="products">
+            <a href="">
+                <img src="../../../img/bobina.png" alt="">
+            </a>
+            <a href="">
+                <p class="name-product">
+                    Bobina Branca Apergaminhado
+                </p>
+            </a>
+        </div>
+
+        <div class="products">
+            <a href="">
+                <img src="../../../img/papel.png" alt="">
+            </a>
+            <a href="">
+                <p class="name-product">
+                    Etiqueta código de barras
+                </p>
+            </a>
+        </div>
+    </section>
+
+    <section id="about-home">
+        <div class="about-content">
+
+            <img src="../sce_mvp/img/loja.png" alt="">
+            <h3 class="about-title">Loja de Etiquetas em São Luis</h3>
+            <p class="about-text">Nossa distribuidora em São Luis oferece uma variedade de etiquetas e etiquetadoras das melhores marcas. Recomex é a melhor loja da cidade. Com estoque diversificado, atendendo todos clientes. Não há o que você esteja procurando, que não tenhamos em nossas prateleiras.</p>
+
+        </div>
+
+        <div class="about-content">
+
+            <img src="../sce_mvp/img/equipe.png" alt="">
+            <h3 class="about-title">Melhor Equipe de Atendimento</h3>
+            <p class="about-text">Nossa equipe é reconhecida pelo bom humor e disponibilidade, atendemos sempre com um sorriso no rosto. Estamos à disposição para atender aos nossos clientes, tirando todas as dúvidas e oferecendo o produto certo. Não procure mais, venha direto aqui!</p>
+
+        </div>
+
+        <div class="about-content">
+
+            <img src="../sce_mvp/img/estoque.png" alt="">
+            <h3 class="about-title">Estoque de Primeira Linha</h3>
+            <p class="about-text">Nossa missão é oferecer produtos de primeira qualidade. As melhores marcas do mercado para todos os itens que você precisa. Venha nos visitar, excelente atendimento com o preço que você quer pagar.</p>
+
+        </div>
+    </section>
+
+    <section id="location-home">
+        <div class="google-maps-home">
+            <p>Localização</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1992.9048207841915!2d-44.20485355619896!3d-2.5686093992341026!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7f691225f9512e9%3A0x313e0a351503da42!2sRecomex!5e0!3m2!1spt-BR!2sbr!4v1698089433956!5m2!1spt-BR!2sbr" width="1000" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <footer id="footer-home">
+        aaa
+    </footer>
 </body>
 
 </html>
