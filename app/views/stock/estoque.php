@@ -37,7 +37,7 @@ $query = mysqli_query($mysqli, $sql);
         <div class="container" style=" background: white; box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.25)">
             <nav style="display: flex; justify-content:space-between; ">
                 <div>
-                    <button class="btn-add" onclick="document.getElementById('add').style.display='block'">Adicionar produto</button>
+                    <button class="btn-add " onclick="document.getElementById('add').style.display='block'">Adicionar produto</button>
                     <button class="btn-ven" onclick="document.getElementById('ven').style.display='block'">Vender produto </button>
                 </div>
                 <form method="POST" action="">
