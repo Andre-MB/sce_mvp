@@ -139,7 +139,6 @@ $query = mysqli_query($mysqli, $sql);
         console.log(td)
 
         window.onclick = function(event) {
-
             if (event.target === modal2) {
                 modal2.style.display = "none";
             }
@@ -147,11 +146,6 @@ $query = mysqli_query($mysqli, $sql);
             if (event.target === modal) {
                 modal.style.display = "none";
             }
-            if (event.target == td) {
-                console.log("dicid")
-            }
-
-            console.log(event.target)
         }
     </script>
 
