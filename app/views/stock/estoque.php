@@ -11,8 +11,29 @@ if ($_POST["filtro"] != null) {
 }
 
 $sql = "SELECT * FROM produtos $filtro_sql";
-
 $query = mysqli_query($mysqli, $sql);
+
+if (!empty($_GET['id'])) {
+    $idproduto = $_GET['id'];
+    $sqlSelec = "SELECT * FROM produtos WHERE id=$idproduto";
+    $result = mysqli_query($mysqli, $sqlSelec);
+    // print_r($result); mostra a query foi um sucesso
+
+    if ($result->num_rows > 0) {
+        while ($user_data = mysqli_fetch_assoc($result)) {
+            $nome = $user_data["nome"];
+            $unidade_de_medida = $user_data["unidade_de_medida"];
+            $quantidade = $user_data["quantidade"];
+            $descricao = $user_data["descricao"];
+            $custo = $user_data["custo"];
+            $preco = $user_data["preco"];
+            $ncm = $user_data["ncm"];
+            $origem = $user_data["origem"];
+        }
+    } else {
+        echo  "<script>alert('Não teve resposta!')</>";
+    }
+}
 
 ?>
 
@@ -37,7 +58,7 @@ $query = mysqli_query($mysqli, $sql);
         <div class="container" style=" background: white; box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.25)">
             <nav style="display: flex; justify-content:space-between; ">
                 <div>
-                    <button class="btn-add " onclick="document.getElementById('add').style.display='block'">Adicionar produto</button>
+                    <button class="btn-add" onclick="document.getElementById('add').style.display='block'">Adicionar produto</button>
                     <button class="btn-ven" onclick="document.getElementById('ven').style.display='block'">Vender produto </button>
                 </div>
                 <form method="POST" action="">
@@ -70,12 +91,12 @@ $query = mysqli_query($mysqli, $sql);
                             echo "<td>"   . $data['ncm'] . "</td>";
                             echo "<td>"   . $data['quantidade'] . ' ' . $data['unidade_de_medida'] . "</td>";
                             echo "<td>" . 'R$ '  . number_format($res, 2, ',') . "</td>";
-                            echo "<td>" . 'R$ '  . number_format($re, 2, ',') . "</td>";
-                            echo "<td class=\"ult\" > <button>+</button> <button>-</button> </td>";
+                            echo "<td >" . 'R$ '  . number_format($re, 2, ',') . "</td>";
+                            echo "<td class=\"penult\"  > <a href='../modal-de-editar/edite.php?id=$id' > <img src='../../../img/pencil.png' alt=''> </a> </td>";
+                            echo "<td class=\"ult\"  > <a href='?id=$id'>  <img src='../../../img/trash.png' alt=''> </a> </td>";
                         }
                         ?>
                     </tbody>
-                    <button></button>
                 </table>
             </div>
         </div>
@@ -84,6 +105,7 @@ $query = mysqli_query($mysqli, $sql);
 
     <!-- Modal de Adicionar Produto -->
     <div id="add" class="modal">
+
         <form class="modal-content animate" method="POST" action="../../helpers/insert.php">
             <div class="container1">
                 <div class="hed">
@@ -110,7 +132,7 @@ $query = mysqli_query($mysqli, $sql);
 
     <!-- Modal de Vender Produto  -->
     <div id="ven" class="modal">
-        <form class="modal-content  animate" method="POST" action="">
+        <form class="modal-content  animate" method="POST" action="../../helpers/venda.php">
             <div class="container1">
                 <div class="hed">
                     <h3>Vender Produto</h3>
@@ -121,11 +143,37 @@ $query = mysqli_query($mysqli, $sql);
                 </div>
 
                 <div class="man_ven">
+                    <input type="text" placeholder="Nome do Produto" name="namev" required>
+                    <input type="text" placeholder="Quantidade" name="quantidadev" required>
+                    <input type="text" placeholder="Custo(Preço de compra)" name="custov" required>
+                    <input type="text" placeholder="Preço de Venda" name="precov" required>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Modal de Editar Produto -->
+    <div id="edt" class="modal">
+
+        <form class="modal-content animate" method="POST" action="">
+            <div class="container1">
+                <div class="hed">
+                    <h3>Editar Produto</h3>
+                    <div>
+                        <button class="can"">Cancelar</button>
+                        <button class=" salv" type="submit">Salvar</button>
+                    </div>
+                </div>
+
+                <div class="man">
                     <input type="text" placeholder="Nome do Produto" name="name" required>
                     <input type="text" placeholder="UNID-Unidade" name="unidade_de_medida" required>
                     <input type="text" placeholder="Quantidade" name="quantidade" required>
+                    <input type="text" placeholder="Descrição(Branco, Tipo, Tamanho)" name="descricao">
                     <input type="text" placeholder="Custo(Preço de compra)" name="custo" required>
                     <input type="text" placeholder="Preço de Venda" name="preco" required>
+                    <input type="text" placeholder="NCM" name="ncm">
+                    <input type="text" placeholder="Origem" name="origem">
                 </div>
             </div>
         </form>
@@ -134,9 +182,6 @@ $query = mysqli_query($mysqli, $sql);
     <script>
         var modal = document.getElementById('add');
         var modal2 = document.getElementById('ven');
-        var td = document.querySelectorAll('.ult');
-
-        console.log(td)
 
         window.onclick = function(event) {
             if (event.target === modal2) {
@@ -147,7 +192,13 @@ $query = mysqli_query($mysqli, $sql);
                 modal.style.display = "none";
             }
         }
+
+        function edti() {
+            document.getElementById('edt').style.display = 'block';
+        }
     </script>
+
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
 
 </body>
 

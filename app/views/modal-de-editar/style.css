@@ -2,12 +2,16 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	text-decoration: none;
 }
 
 body {
-	background-color: #dae4e6;
+	background-color: #57bacd;
 }
 
+a {
+	text-decoration: none;
+}
 
 /* Main */
 main {
@@ -61,7 +65,7 @@ main {
 
 /* modal */
 .modal {
-	display: none;
+	display: block;
 	position: fixed;
 	z-index: 1;
 	left: 0;
@@ -96,7 +100,7 @@ main {
 	background-color: #006653;
 	border: none;
 	border-radius: 15px;
-	color: #fff;
+	color: #000000;
 	padding: 5px;
 	cursor: pointer;
 }

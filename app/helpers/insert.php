@@ -15,7 +15,7 @@ $sql = "INSERT INTO produtos(nome,unidade_de_medida,descricao,ncm,quantidade,cus
 
 if (mysqli_query($mysqli, $sql)) {
     // echo "Registro adicionado com sucesso !";
-    header("location: ../views/estoque.php");
+    header("location: ../views/stock/estoque.php");
     //die();
 } else {
     echo "Error: " . $sql . ":-" . mysqli_error($conn);
