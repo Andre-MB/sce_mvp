@@ -83,7 +83,7 @@ $query = mysqli_query($mysqli, $sql);
             <div class="hed">
                 <h3>Editar Produto</h3>
                 <div>
-                    <button class="can" type="submit"><a href="../stock/estoque.php">Cancelar</a></button>
+                    <button class="can"><a href="../stock/estoque.php">Cancelar</a></button>
                     <button class="salv" type="submit">Salvar</button>
                 </div>
             </div>

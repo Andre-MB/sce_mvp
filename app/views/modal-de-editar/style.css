@@ -6,11 +6,13 @@
 }
 
 body {
-	background-color: #57bacd;
+	background-color: #dae4e6;
 }
 
 a {
 	text-decoration: none;
+	border: solid #000 1px;
+	padding: 5px 5px;
 }
 
 /* Main */
@@ -34,7 +36,7 @@ main {
 	border: none;
 	border-radius: 10px;
 	padding: 5px 40px;
-	color: #fff;
+	color: #ffffff;
 }
 
 .btn-add:hover {
@@ -100,7 +102,7 @@ main {
 	background-color: #006653;
 	border: none;
 	border-radius: 15px;
-	color: #000000;
+	color: #ffffff;
 	padding: 5px;
 	cursor: pointer;
 }
