@@ -13,27 +13,7 @@ if ($_POST["filtro"] != null) {
 $sql = "SELECT * FROM produtos $filtro_sql";
 $query = mysqli_query($mysqli, $sql);
 
-if (!empty($_GET['id'])) {
-    $idproduto = $_GET['id'];
-    $sqlSelec = "SELECT * FROM produtos WHERE id=$idproduto";
-    $result = mysqli_query($mysqli, $sqlSelec);
-    // print_r($result); mostra a query foi um sucesso
 
-    if ($result->num_rows > 0) {
-        while ($user_data = mysqli_fetch_assoc($result)) {
-            $nome = $user_data["nome"];
-            $unidade_de_medida = $user_data["unidade_de_medida"];
-            $quantidade = $user_data["quantidade"];
-            $descricao = $user_data["descricao"];
-            $custo = $user_data["custo"];
-            $preco = $user_data["preco"];
-            $ncm = $user_data["ncm"];
-            $origem = $user_data["origem"];
-        }
-    } else {
-        echo  "<script>alert('Não teve resposta!')</>";
-    }
-}
 
 ?>
 
@@ -152,32 +132,7 @@ if (!empty($_GET['id'])) {
         </form>
     </div>
 
-    <!-- Modal de Editar Produto -->
-    <div id="edt" class="modal">
 
-        <form class="modal-content animate" method="POST" action="">
-            <div class="container1">
-                <div class="hed">
-                    <h3>Editar Produto</h3>
-                    <div>
-                        <button class="can"">Cancelar</button>
-                        <button class=" salv" type="submit">Salvar</button>
-                    </div>
-                </div>
-
-                <div class="man">
-                    <input type="text" placeholder="Nome do Produto" name="name" required>
-                    <input type="text" placeholder="UNID-Unidade" name="unidade_de_medida" required>
-                    <input type="text" placeholder="Quantidade" name="quantidade" required>
-                    <input type="text" placeholder="Descrição(Branco, Tipo, Tamanho)" name="descricao">
-                    <input type="text" placeholder="Custo(Preço de compra)" name="custo" required>
-                    <input type="text" placeholder="Preço de Venda" name="preco" required>
-                    <input type="text" placeholder="NCM" name="ncm">
-                    <input type="text" placeholder="Origem" name="origem">
-                </div>
-            </div>
-        </form>
-    </div>
 
     <script>
         var modal = document.getElementById('add');

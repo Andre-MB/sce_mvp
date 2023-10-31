@@ -9,10 +9,14 @@ body {
 	background-color: #dae4e6;
 }
 
-a {
+.can a {
 	text-decoration: none;
-	border: solid #000 1px;
 	padding: 5px 5px;
+	color: #fff;
+}
+
+a::after {
+	color: #fff;
 }
 
 /* Main */

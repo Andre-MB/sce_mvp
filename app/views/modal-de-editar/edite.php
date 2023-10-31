@@ -7,6 +7,28 @@ $sql = "SELECT * FROM produtos $filtro_sql";
 
 $query = mysqli_query($mysqli, $sql);
 
+if (!empty($_GET['id'])) {
+    $idproduto = $_GET['id'];
+    $sqlSelec = "SELECT * FROM produtos WHERE id=$idproduto";
+    $result = mysqli_query($mysqli, $sqlSelec);
+    // print_r($result); mostra a query foi um sucesso
+
+    if ($result->num_rows > 0) {
+        while ($user_data = mysqli_fetch_assoc($result)) {
+            $nome = $user_data["nome"];
+            $unidade_de_medida = $user_data["unidade_de_medida"];
+            $quantidade = $user_data["quantidade"];
+            $descricao = $user_data["descricao"];
+            $custo = $user_data["custo"];
+            $preco = $user_data["preco"];
+            $ncm = $user_data["ncm"];
+            $origem = $user_data["origem"];
+        }
+    } else {
+        echo  "<script>alert('Não teve resposta!')</>";
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +38,7 @@ $query = mysqli_query($mysqli, $sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estoque</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylee.css">
 </head>
 
 <body>
@@ -76,32 +98,31 @@ $query = mysqli_query($mysqli, $sql);
 
 
     <!-- Modal de Editar Produto -->
-    <div id="add" class="modal">
+    <div id="edt" class="modal">
 
-        <form class="modal-content animate" ">
+        <form class="modal-content animate" method="$_POST" action="../../helpers/save_edite.php"">
             <div class=" container1">
             <div class="hed">
                 <h3>Editar Produto</h3>
                 <div>
                     <button class="can"><a href="../stock/estoque.php">Cancelar</a></button>
-                    <button class="salv" type="submit">Salvar</button>
+                    <input class="salv" type="submit" name="update" id="update">
                 </div>
             </div>
 
             <div class="man">
-                <input type="text" placeholder="Nome do Produto" name="name">
-                <input type="text" placeholder="UNID-Unidade" name="unidade_de_medida">
-                <input type="text" placeholder="Quantidade" name="quantidade">
-                <input type="text" placeholder="Descrição(Branco, Tipo, Tamanho)" name="descricao">
-                <input type="text" placeholder="Custo(Preço de compra)" name="custo">
-                <input type="text" placeholder="Preço de Venda" name="preco">
-                <input type="text" placeholder="NCM" name="ncm">
-                <input type="text" placeholder="Origem" name="origem">
+                <input type="text" placeholder="Nome do Produto" value="<?php echo $nome ?>" name="name">
+                <input type="text" placeholder="UNID-Unidade" value="<?php echo $unidade_de_medida ?>" name="unidade_de_medida">
+                <input type="text" placeholder="Quantidade" value="<?php echo $quantidade ?>" name="quantidade">
+                <input type="text" placeholder="Descrição(Branco, Tipo, Tamanho)" value="<?php echo $descricao ?>" name="descricao">
+                <input type="text" placeholder="Custo(Preço de compra)" value="<?php echo $custo ?>" name="custo">
+                <input type="text" placeholder="Preço de Venda" value="<?php echo $preco ?>" name="preco">
+                <input type="text" placeholder="NCM" value="<?php echo $ncm ?>" name="ncm">
+                <input type="text" placeholder="Origem" value="<?php echo $origem ?>" name="origem">
+                <input type="hidden" name="id" value="<?php echo $idproduto ?>">
             </div>
+        </form>
     </div>
-    </form>
-    </div>
-
 
     <script>
 
