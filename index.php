@@ -46,7 +46,7 @@
     <section id="section-products-home">
         <div class="products">
             <a href="">
-                <img src="../../../img/papel.png" alt="">
+                <img src="../sce_mvp/img/papel.png" alt="">
             </a>
             <a href="">
                 <p class="name-product">
