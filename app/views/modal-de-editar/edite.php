@@ -100,13 +100,13 @@ if (!empty($_GET['id'])) {
     <!-- Modal de Editar Produto -->
     <div id="edt" class="modal">
 
-        <form class="modal-content animate" method="$_POST" action="../../helpers/save_edite.php"">
+        <form class="modal-content animate" method="POST" action="../../helpers/save_edite.php"">
             <div class=" container1">
             <div class="hed">
                 <h3>Editar Produto</h3>
                 <div>
                     <button class="can"><a href="../stock/estoque.php">Cancelar</a></button>
-                    <input class="salv" type="submit" name="update" id="update">
+                    <input class="salv" type="submit" name="upda" id="upda">
                 </div>
             </div>
 

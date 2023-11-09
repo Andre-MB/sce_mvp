@@ -13,7 +13,6 @@ body {
 }
 
 /* nav */
-
 #nav-home {
 	padding: 10px;
 	justify-content: space-between;
@@ -24,6 +23,7 @@ body {
 	display: flex;
 	align-items: center;
 	position: fixed;
+	z-index: 2;
 }
 
 .button-logo img {
@@ -38,7 +38,7 @@ body {
 	background-color: #6F0000;
 	color: white;
 	font-weight: 600;
-	border: solid 2px white;
+	border: solid 2px rgb(255, 255, 255);
 	border-radius: 50px;
 	cursor: pointer;
 	transition: background-color, color 350ms;
@@ -70,7 +70,6 @@ body {
 .list a {
 	color: white;
 	text-decoration: none;
-
 	transition: font-size 350ms;
 }
 
@@ -81,7 +80,6 @@ body {
 
 .list a:hover {
 	font-size: 17px;
-
 }
 
 /* fim da nav */
@@ -91,36 +89,66 @@ body {
 	width: 100%;
 }
 
+/* slide */
 
-ion-icon {
-	font-size: 100px;
+.slide {
+	min-height: 40vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 #section-products-home {
-	width: 100%;
-	height: 40vh;
+	max-width: 90%;
 	display: flex;
-	justify-content: space-around;
+	flex-direction: row;
 	align-items: center;
+	overflow: hidden;
+	margin-bottom: 5px;
+	scroll-behavior: smooth;
 }
+
+.carousel {
+	font-size: 0px;
+	cursor: pointer;
+	overflow: hidden;
+	white-space: nowrap;
+	scroll-behavior: smooth;
+}
+
+.imagens_do_slide {
+	width: 90vw;
+	display: flex;
+	flex-direction: row;
+	flex-flow: row nowrap;
+	gap: 5px;
+	overflow-x: auto;
+	overflow: hidden;
+	scroll-behavior: smooth;
+}
+
 
 
 .products {
+	height: 30%;
+	width: calc(100%/5);
+}
+
+.div_img {
 	background-color: #f1f1f1;
-	border-radius: 10px;
-	width: 250px;
-	height: 250px;
-	transition: 350ms;
+	border-radius: 20px;
 }
 
-.products:hover img {
-	opacity: 0.5;
+.products img {
+	height: 30vh;
 }
 
+.div_seta_da_diretia {
+	height: max-content;
+}
 
-#section-products-home .products img {
-	width: 250px;
-	height: 250px;
+.seta_da_direita {
+	rotate: 180deg;
 }
 
 .name-product {
@@ -133,6 +161,7 @@ ion-icon {
 .name-product:hover {
 	text-decoration: underline;
 }
+
 
 
 
@@ -197,5 +226,45 @@ ion-icon {
 
 #footer-home {
 	background-color: #6F0000;
+}
+
+.footer_superior {
+	display: flex;
+	justify-content: center;
+	padding: 20px 0px;
+	gap: 10vw;
+}
+
+.footer_superior div>div {
+	display: flex;
+	align-items: center;
+	color: #fff;
+	gap: 5px;
+	margin-top: 3px;
+}
+
+.footer_superior h3 {
+	color: #FF9200;
+}
+
+.ltd {
+	width: 360px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+	color: #fff;
+}
+
+.formas_de_pagamentos {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.footer_inferior {
 	text-align: center;
+	color: #fff;
+	background-color: #4D0000;
 }

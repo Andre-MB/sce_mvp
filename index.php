@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style-home.css">
     <title>Recomex | Etiquetas em São Luís</title>
+    <link rel="icon" type="image/x-icon" href="../sce_mvp/img/logo_recomex_apenas_R.png">
 </head>
 
 <body>
     <nav id="nav-home">
 
         <a class="button-logo" href="#">
-            <img src="../sce_mvp/img/logo_recomex2.png" alt="">
+            <img width="150vw" height="40vh" src="../sce_mvp/img/logo_recomex2.png" alt="">
         </a>
 
 
@@ -43,62 +44,116 @@
         </div>
     </section>
 
-    <section id="section-products-home">
-        <div class="products">
-            <a href="">
-                <img src="../sce_mvp/img/papel.png" alt="">
-            </a>
-            <a href="">
-                <p class="name-product">
-                    Etiqueta código de barras
-                </p>
-            </a>
-        </div>
-        <div class="products">
-            <a href="">
-                <img src="../../../img/impressora.png" alt="">
-            </a>
-            <a href="">
-                <p class="name-product">
-                    Impressora
-                </p>
-            </a>
-        </div>
-
-        <div class="products">
-            <a href="">
-                <img src="../../../img/calc.png" alt="">
-            </a>
-            <a href="">
-                <p class="name-product">
-                    Calculadora De Mesa com Bobina
-                </p>
-            </a>
-        </div>
 
 
-        <div class="products">
-            <a href="">
-                <img src="../../../img/bobina.png" alt="">
-            </a>
-            <a href="">
-                <p class="name-product">
-                    Bobina Branca Apergaminhado
-                </p>
-            </a>
-        </div>
 
-        <div class="products">
-            <a href="">
-                <img src="../../../img/papel.png" alt="">
-            </a>
-            <a href="">
-                <p class="name-product">
-                    Etiqueta código de barras
-                </p>
-            </a>
-        </div>
-    </section>
+    <div class="slide">
+        <section id="section-products-home">
+
+            <div id="left" class="seta_da_esquerda control arrow-left">
+                <img src="../sce_mvp/img/arrowiosback_111116.svg" height="100px" alt="">
+            </div>
+
+            <div class="imagens_do_slide">
+
+                <div class="products item">
+                    <div class="div_img" href="">
+                        <img src="../sce_mvp/img/papel.png" alt="">
+                    </div>
+                    <a href="">
+                        <p class="name-product">
+                            Etiqueta código de barras
+                        </p>
+                    </a>
+                </div>
+
+                <div class="products item">
+                    <div class="div_img" href="">
+                        <img src="../sce_mvp/img/impressora.png" alt="">
+                    </div>
+                    <a href="">
+                        <p class="name-product">
+                            Impressora
+                        </p>
+                    </a>
+                </div>
+
+                <div class="products item">
+                    <div class="div_img" href="">
+                        <img src="../sce_mvp/img/calc.png" alt="">
+                    </div>
+                    <a href="">
+                        <p class="name-product">
+                            Calculadora De Mesa com Bobina
+                        </p>
+                    </a>
+                </div>
+
+
+                <div class="products item">
+                    <div class="div_img" href="">
+                        <img src="../sce_mvp/img/bobina.png" alt="">
+                    </div>
+                    <a href="">
+                        <p class="name-product">
+                            Bobina Branca Apergaminhado
+                        </p>
+                    </a>
+                </div>
+
+                <div class="products item">
+                    <div class="div_img" href="">
+                        <img src="../sce_mvp/img/papel.png" alt="">
+                    </div>
+                    <a href="">
+                        <p class="name-product">
+                            Etiqueta código de barras
+                        </p>
+                    </a>
+                </div>
+
+                <div class="products item">
+                    <div class="div_img" href="">
+                        <img src="../sce_mvp/img/papel.png" alt="">
+                    </div>
+                    <a href="">
+                        <p class="name-product">
+                            Etiqueta código de barras
+                        </p>
+                    </a>
+                </div>
+
+                <div class="products item">
+                    <div class="div_img" href="">
+                        <img src="../sce_mvp/img/papel.png" alt="">
+                    </div>
+                    <a href="">
+                        <p class="name-product">
+                            Etiqueta código de barras
+                        </p>
+                    </a>
+                </div>
+
+                <div class="products item">
+                    <div class="div_img" href="">
+                        <img src="../sce_mvp/img/papel.png" alt="">
+                    </div>
+                    <a href="">
+                        <p class="name-product">
+                            Etiqueta código de barras
+                        </p>
+                    </a>
+                </div>
+
+            </div>
+
+            <div id="right" class="div_seta_da_direita control arrow-right">
+                <img class="seta_da_direita" src="../sce_mvp/img/arrowiosback_111116.svg" height="100px" alt="">
+            </div>
+
+        </section>
+    </div>
+
 
     <section id="about-home">
         <div class="about-content">
@@ -126,6 +181,11 @@
         </div>
     </section>
 
+
+
+
+
+
     <section id="location-home">
         <div class="google-maps-home">
             <p>Localização</p>
@@ -133,9 +193,51 @@
         </div>
     </section>
 
+
+
+
+
     <footer id="footer-home">
-        aaa
+        <div class="footer_superior">
+            <div class="infor_cont">
+                <h3>Informações/Contatos</h3>
+                <div class="rua">
+                    <img src="../sce_mvp/img/local.png" height="20px" alt="">
+                    <p>Rua 19 Q. O N°10 São Luis - MA | 65072-330</p>
+                </div>
+                <div class="email">
+                    <img src="../sce_mvp/img/email.png" height="20px" alt="">
+                    <p>recomex2013@gmail.com</p>
+                </div>
+                <div class="zap">
+                    <img src="../sce_mvp/img/zap.png" height="20px" alt="">
+                    <p>(98) 98811-0147 </p>
+                </div>
+                <div class="face">
+                    <img src="../sce_mvp/img/face.png" height="20px" alt="">
+                    <p>@Recomex_face</p>
+                </div>
+                <div class="insta">
+                    <img src="../sce_mvp/img/insta.png" height="23px" alt="">
+                    <p>@Recomex_insta</p>
+                </div>
+            </div>
+            <div class="formas_de_pagamentos">
+                <h3>Formas de Pagamento</h3>
+                <img src="../sce_mvp/img/FORMAS DE PAGAMENTO.png" alt="">
+            </div>
+            <div class="ltd">
+                <img src="../sce_mvp/img/ltd-logo.png" height="100px" width="90px" alt="">
+                <h6>Developed by LTD</h6>
+            </div>
+        </div>
+        <div class="footer_inferior">
+            <h5>Recomex | Etiquetas em São Luís</h5>
+            <h6>Equipe de desenvolvimento da Estácio de Sá | Laboratório de Transformação Digital</h6>
+        </div>
     </footer>
+
+    <script src="slide.js"></script>
 </body>
 
 </html>

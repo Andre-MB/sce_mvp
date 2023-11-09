@@ -43,8 +43,9 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Recomex</title>
+    <title>Recomex | Login</title>
     <link rel="stylesheet" href="style-login.css">
+    <link rel="icon" type="image/x-icon" href="../../../img/logo_recomex_apenas_R.png">
 </head>
 
 <body>
@@ -57,9 +58,8 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
     </nav> -->
 
     <nav id="nav-home">
-
-        <a class="button-logo" href="app/views/home/home.php">
-            <img src="img/logo_recomex2.png" alt="">
+        <a class="button-logo" href="../../../index.php">
+            <img width="140px" height="40vh" src="../../../img/logo_recomex2.png" alt="">
         </a>
     </nav>
 
@@ -88,7 +88,7 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
 
             <div class="l"><span></span></div>
 
-            <img src="" width=" 400px" height="400px" alt="">
+            <img src="../../../img/Rectangle10.png" width=" 400px" height="400px" alt="">
         </div>
 
     </main>

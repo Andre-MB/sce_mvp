@@ -13,8 +13,6 @@ if ($_POST["filtro"] != null) {
 $sql = "SELECT * FROM produtos $filtro_sql";
 $query = mysqli_query($mysqli, $sql);
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -23,8 +21,9 @@ $query = mysqli_query($mysqli, $sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estoque</title>
+    <title>Recomex | Estoque</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="../../../img/logo_recomex_apenas_R.png">
 </head>
 
 <body>
@@ -73,7 +72,7 @@ $query = mysqli_query($mysqli, $sql);
                             echo "<td>" . 'R$ '  . number_format($res, 2, ',') . "</td>";
                             echo "<td >" . 'R$ '  . number_format($re, 2, ',') . "</td>";
                             echo "<td class=\"penult\"  > <a href='../modal-de-editar/edite.php?id=$id' > <img src='../../../img/pencil.png' alt=''> </a> </td>";
-                            echo "<td class=\"ult\"  > <a href='?id=$id'>  <img src='../../../img/trash.png' alt=''> </a> </td>";
+                            echo "<td class=\"ult\"  > <a href='../../helpers/delete.php?id=$id'>  <img src='../../../img/trash.png' alt=''> </a> </td>";
                         }
                         ?>
                     </tbody>
