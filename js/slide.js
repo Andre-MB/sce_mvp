@@ -22,7 +22,7 @@ arrowIcons.forEach(icon => {
 })
 
 setInterval(function () {
-    carousel.scrollLeft += firstImgWidth;
+    carousel.scrollLeft += firstImgWidth + 50;
 
     console.log(carousel.scrollLeft);
 
