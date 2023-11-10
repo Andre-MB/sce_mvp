@@ -29,7 +29,7 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
             $_SESSION['id'] = $usuario['id'];
             $_SESSION['nome'] = $usuario['nome'];
 
-            header("Location: ../stock/estoque.php");
+            header("Location: ../Estoque/estoque.php");
         } else {
             echo  "<script>alert('Falha ao logar! E-mail ou senha incorretos!')</script>";
         }
