@@ -10,7 +10,7 @@ if ($_POST["filtro"] != null) {
     $filtro_sql = "WHERE id='$filtro' OR descricao LIKE '%$filtro%' OR nome LIKE '%$filtro%' ";
 }
 
-$sql = "SELECT * FROM produtos $filtro_sql";
+$sql = "SELECT * FROM vendas $filtro_sql";
 $query = mysqli_query($mysqli, $sql);
 
 ?>
@@ -67,10 +67,7 @@ $query = mysqli_query($mysqli, $sql);
     <main>
         <div class="container" style=" background: white; box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.25)">
             <nav style="display: flex; justify-content:space-between; ">
-                <div>
-                    <button class="btn-add" onclick="document.getElementById('add').style.display='block'">Adicionar produto</button>
-                    <button class="btn-ven" onclick="document.getElementById('ven').style.display='block'">Vender produto </button>
-                </div>
+                <h3>Histórico de vendas</h3>
                 <form method="POST" action="">
                     <input class="input_search" type="text" placeholder="Pesquise(Código, Nome ou Descrição)" value="<?php echo $_POST["filtro"]; ?>" name="filtro">
                 </form>
@@ -80,28 +77,25 @@ $query = mysqli_query($mysqli, $sql);
                 <table class="table">
                     <thead>
                         <th class="coluna-um" scope="col">Código</th>
+                        <th scope="col">Data</th>
                         <th scope="col">Nome</th>
-                        <th scope="col">Descrição</th>
-                        <th scope="col">NCM</th>
+                        <th scope="col">Produto(s)</th>
                         <th scope="col">Quantidade</th>
-                        <th scope="col">Custo</th>
-                        <th scope="col">Preço</th>
+                        <th scope="col">Valor da Venda</th>
                     </thead>
                     <tbody>
                         <?php
                         while ($data = mysqli_fetch_assoc($query)) {
-                            $res = $data['custo'];
-                            $re = $data['preco'];
+                            $res = $data['valor_vendido'];
                             $id = $data['id'];
 
                             echo "<tr >";
                             echo "<td class=\"pri\" >"   . $data['id'] . "</td>";
-                            echo "<td>"   . $data['nome'] . "</td>";
-                            echo "<td>"   . $data['descricao'] . "</td>";
-                            echo "<td>"   . $data['ncm'] . "</td>";
-                            echo "<td>"   . $data['quantidade'] . ' ' . $data['unidade_de_medida'] . "</td>";
+                            echo "<td>"   . $data['data'] . "</td>";
+                            echo "<td>"   . $data['nomeCliente'] . "</td>";
+                            echo "<td>"   . $data['nomeProduto'] . "</td>";
+                            echo "<td>"   . $data['quantidadeDVP'] . "</td>";
                             echo "<td>" . 'R$ '  . number_format($res, 2, ',') . "</td>";
-                            echo "<td >" . 'R$ '  . number_format($re, 2, ',') . "</td>";
                             echo "<td class=\"penult\"  > <a href='../modal-de-editar/edite.php?id=$id' > <img src='../../../img/pencil.png' alt=''> </a> </td>";
                             echo "<td class=\"ult\"  > <a href='../../helpers/delete.php?id=$id'>  <img src='../../../img/trash.png' alt=''> </a> </td>";
                         }

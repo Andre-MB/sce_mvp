@@ -7,7 +7,7 @@ $filtro_sql = "";
 
 if ($_POST["filtro"] != null) {
     $filtro = $_POST["filtro"];
-    $filtro_sql = "WHERE id='$filtro' OR descricao LIKE '%$filtro%' OR nome LIKE '%$filtro%' ";
+    $filtro_sql = "WHERE id='$filtro' OR cnpj_cpf LIKE '%$filtro%' OR nome LIKE '%$filtro%' ";
 }
 
 $sql = "SELECT * FROM clientes $filtro_sql";
