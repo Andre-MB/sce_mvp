@@ -50,8 +50,3 @@ for ($i = 0; $i <= count($itens); $i++) {
         mysqli_query($mysqli, $sqlintepv);
     }
 }
-
-// $sqlidultimav = "SELECT idvendas FROM `vendas` ORDER BY idvendas DESC LIMIT 1";
-// $verfe = mysqli_query($mysqli, $sqlidultimav);
-// $idv = mysqli_fetch_assoc($verfe);
-// print_r($idv['idvendas']);
