@@ -18,7 +18,7 @@ header {
 	width: 15vw;
 	height: auto;
 	background: #6f0000;
-	box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
+	box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.25);
 	display: flex;
 	flex-direction: column;
 }
@@ -132,7 +132,7 @@ main {
 }
 
 .input_search {
-	width: 300px;
+	width: 500px;
 	background-color: #E9EFF0;
 	border: solid 1px #7a7a7a;
 	border-radius: 15px;
@@ -237,11 +237,64 @@ input[name='origem'] {
 	padding: 10px;
 }
 
-.man_ven>input {
+.man_ven input,
+select {
 	background-color: rgba(217, 217, 217, 0.6);
 	border: 1px solid #7B7B7B;
 	border-radius: 5px;
 	padding: 10px;
+	/* display: flex; */
+}
+
+.nomedocliente {
+	width: 100%;
+	margin-bottom: 5px;
+}
+
+.productos {
+	height: 40px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.productos select {
+	width: 25%;
+}
+
+.productos img {
+	height: 40px;
+	cursor: pointer;
+}
+
+.header_prodt {
+	display: flex;
+	justify-content: space-between;
+}
+
+.header_prodt div {
+	display: flex;
+	justify-content: space-around;
+	width: 35%;
+	margin-right: 80px;
+}
+
+.prodt h4 {
+	text-align: right;
+	padding-right: 40px;
+}
+
+.footer {
+	display: flex;
+	flex-direction: row;
+}
+
+.footer input {
+	width: 50%;
+}
+
+.formadepagamento {
+	margin-right: 5%;
 }
 
 /* Animação do modal */

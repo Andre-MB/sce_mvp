@@ -4,14 +4,13 @@ include('../../helpers/protect.php');
 include('../../helpers/conexao.php');
 
 $sql = "SELECT * FROM produtos $filtro_sql";
-
 $query = mysqli_query($mysqli, $sql);
 
 if (!empty($_GET['id'])) {
     $idproduto = $_GET['id'];
     $sqlSelec = "SELECT * FROM produtos WHERE id=$idproduto";
     $result = mysqli_query($mysqli, $sqlSelec);
-    // print_r($result); mostra a query foi um sucesso
+    // print_r($result); // mostra a query foi um sucesso
 
     if ($result->num_rows > 0) {
         while ($user_data = mysqli_fetch_assoc($result)) {
@@ -38,7 +37,8 @@ if (!empty($_GET['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estoque</title>
-    <link rel="stylesheet" href="stylee.css">
+    <link rel="icon" type="image/x-icon" href="../../../img/logo_recomex_apenas_R.png">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -135,7 +135,7 @@ if (!empty($_GET['id'])) {
             <div class="hed">
                 <h3>Editar Produto</h3>
                 <div>
-                    <button class="can"><a href="../stock/estoque.php">Cancelar</a></button>
+                    <button class="can"><a href="../Estoque/estoque.php">Cancelar</a></button>
                     <input class="salv" type="submit" name="upda" id="upda">
                 </div>
             </div>
@@ -153,6 +153,16 @@ if (!empty($_GET['id'])) {
             </div>
         </form>
     </div>
+
+    <script>
+        var modal = document.getElementById('edt');
+
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                location.href = '../Estoque/estoque.php'
+            }
+        }
+    </script>
 
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
 

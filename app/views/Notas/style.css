@@ -17,7 +17,7 @@ a {
 header {
 	width: 15vw;
 	height: auto;
-	background: #6F0000;
+	background: #6f0000;
 	box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
 	display: flex;
 	flex-direction: column;
@@ -105,38 +105,26 @@ main {
 	padding: 10px;
 }
 
-.btn-add {
-	min-width: 190px;
-	background-color: #169a42;
-	border: none;
-	border-radius: 10px;
-	padding: 5px 40px;
-	color: #ffffff;
-}
 
-.btn-add:hover {
-	box-shadow: 2px 2px 2px #7a7a7a;
-}
-
-.btn-ven {
-	min-width: 190px;
-	background-color: rgba(255, 146, 0, 1);
-	border: none;
-	border-radius: 10px;
-	padding: 5px 40px;
-	color: #fff;
-}
-
-.btn-ven:hover {
-	box-shadow: 2px 2px 2px #7a7a7a;
-}
 
 .input_search {
-	width: 300px;
+	width: 500px;
 	background-color: #E9EFF0;
 	border: solid 1px #7a7a7a;
 	border-radius: 15px;
 	padding: 5px 20px 5px 10px;
+}
+
+.nenhumaNota {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 40px;
+}
+
+.divnenhumaNota {
+	width: 300px;
+	text-align: center;
 }
 
 

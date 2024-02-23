@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recomex | Etiquetas em São Luís</title>
-    <link rel="stylesheet" href="../sce_mvp/styles/style-hom.css">
+    <link rel="stylesheet" href="../sce_mvp/styles/style-home.css">
     <link rel="icon" type="image/x-icon" href="../sce_mvp/img/logo_recomex_apenas_R.png">
 </head>
 
@@ -237,7 +237,7 @@
         </div>
     </footer>
 
-    <script src="../sce_mvp/js/slide.js"></script>
+    <script src="../sce_mvp/js/slid.js"></script>
 </body>
 
 </html>

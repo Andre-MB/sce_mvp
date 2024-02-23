@@ -170,7 +170,6 @@ body {
 	background-color: #6F0000;
 	padding: 30px;
 	width: 100%;
-	margin: auto;
 	height: 30vh;
 	text-align: center;
 }
@@ -192,7 +191,6 @@ body {
 
 .about-title {
 	font-size: 20px;
-	margin-bottom: 8px;
 	color: #ED8000;
 	font-weight: 600;
 }
@@ -202,6 +200,8 @@ body {
 	font-size: 14px;
 	text-align: justify;
 }
+
+
 
 #location-home {
 	padding: 20px;

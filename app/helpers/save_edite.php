@@ -17,4 +17,4 @@ if (isset($_POST['upda'])) {
     $result = mysqli_query($mysqli, $sqlUpadate);
 }
 
-header('Location: ../views/stock/estoque.php');
+header('Location: ../views/Estoque/estoque.php');

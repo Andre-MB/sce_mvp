@@ -17,7 +17,7 @@ a {
 header {
 	width: 15vw;
 	height: auto;
-	background: #6f0000;
+	background: #6F0000;
 	box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
 	display: flex;
 	flex-direction: column;
@@ -33,15 +33,19 @@ header {
 .estoque {
 	display: flex;
 	align-items: center;
-	background-color: rgba(255, 146, 0, 0.34);
 	border-top: solid 1px #FF9200;
 	color: #FF9200;
 	padding: 5px 0;
 }
 
+.estoque:hover {
+	background-color: rgba(255, 146, 0, 0.34);
+}
+
 .clientes {
 	display: flex;
 	align-items: center;
+	background-color: rgba(255, 146, 0, 0.34);
 	border-top: solid 1px #FF9200;
 	color: #FF9200;
 	padding: 5px 5px;
@@ -59,6 +63,10 @@ header {
 	padding: 5px 5px;
 }
 
+.vendas:hover {
+	background-color: rgba(255, 146, 0, 0.34);
+}
+
 .vendas>h3 {
 	padding-left: 10px;
 }
@@ -70,6 +78,10 @@ header {
 	border-bottom: solid 1px #FF9200;
 	color: #FF9200;
 	padding: 5px 5px;
+}
+
+.notas:hover {
+	background-color: rgba(255, 146, 0, 0.34);
 }
 
 .notas>h3 {
@@ -95,7 +107,7 @@ main {
 
 .btn-add {
 	min-width: 190px;
-	background-color: #169a42;
+	background-color: #006653;
 	border: none;
 	border-radius: 10px;
 	padding: 5px 40px;
@@ -120,7 +132,7 @@ main {
 }
 
 .input_search {
-	width: 300px;
+	width: 400px;
 	background-color: #E9EFF0;
 	border: solid 1px #7a7a7a;
 	border-radius: 15px;
@@ -135,10 +147,9 @@ main {
 	z-index: 1;
 	left: 0;
 	top: 0;
-	width: 100%;
+	width: 105%;
 	height: 100%;
 	overflow: auto;
-	background-color: rgb(0, 0, 0);
 	background-color: rgba(0, 0, 0, 0.4);
 	padding-top: 60px;
 }
@@ -162,7 +173,7 @@ main {
 }
 
 .salv {
-	background-color: #006653;
+	background-color: #1e9480;
 	border: none;
 	border-radius: 15px;
 	color: #fff;
@@ -178,6 +189,16 @@ main {
 	padding: 5px;
 	margin-right: 10px;
 	cursor: pointer;
+	text-decoration: none;
+}
+
+.can a {
+	padding: 5px;
+	color: #fff;
+}
+
+a::after {
+	color: #fff;
 }
 
 .man {
@@ -186,36 +207,40 @@ main {
 	grid-template-columns: auto auto auto auto;
 }
 
+input[name='cnpj_cpf'] {
+	grid-column: 1/3;
+}
+
+input[name='inscrição_estadual'] {
+	grid-column: 3/5;
+}
+
 input[name='name'] {
 	grid-column: 1/5;
 }
 
-input[name='unidade_de_medida'] {
-	grid-column: 1/3;
-}
-
-input[name='quantidade'] {
-	grid-column: 3/5;
-}
-
-input[name='descricao'] {
+input[name='numero'] {
 	grid-column: 1/5;
 }
 
-input[name='custo'] {
+input[name='cep'] {
 	grid-column: 1/3;
 }
 
-input[name='preco'] {
+input[name='bairro'] {
 	grid-column: 3/5;
 }
 
-input[name='ncm'] {
+input[name='endereco'] {
 	grid-column: 1/2;
 }
 
-input[name='origem'] {
+input[name='cidade'] {
 	grid-column: 2/5;
+}
+
+input[name='email'] {
+	grid-column: 1/5;
 }
 
 .man>input {

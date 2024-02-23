@@ -22,9 +22,10 @@ arrowIcons.forEach(icon => {
 })
 
 setInterval(function () {
-    carousel.scrollLeft += firstImgWidth + 50;
+    carousel.scrollLeft += firstImgWidth + 30;
 
     console.log(carousel.scrollLeft);
+    console.log("iofvisdj")
 
     if (carousel.scrollLeft >= 800) {
         carousel.scrollLeft = 0;

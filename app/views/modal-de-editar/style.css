@@ -7,6 +7,8 @@
 
 body {
 	background-color: #dae4e6;
+	display: flex;
+	flex-direction: row;
 }
 
 .can a {
@@ -87,15 +89,17 @@ header {
 
 /* Main */
 main {
-	height: 90vh;
+	width: 85vw;
+	height: 100vh;
 	display: flex;
+	flex-direction: row;
 	justify-content: center;
 	padding-top: 10px;
 }
 
 .container {
 	width: 97%;
-	height: 90vh;
+	height: 97vh;
 	border-radius: 20px;
 	padding: 10px;
 }
@@ -127,7 +131,7 @@ main {
 }
 
 .input_search {
-	width: 300px;
+	width: 500px;
 	background-color: #E9EFF0;
 	border: solid 1px #7a7a7a;
 	border-radius: 15px;

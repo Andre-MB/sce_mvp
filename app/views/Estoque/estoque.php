@@ -13,6 +13,11 @@ if ($_POST["filtro"] != null) {
 $sql = "SELECT * FROM produtos $filtro_sql";
 $query = mysqli_query($mysqli, $sql);
 
+$querys = mysqli_query($mysqli, $sql);
+
+$sql_clientes = "SELECT * FROM clientes";
+$quer = mysqli_query($mysqli, $sql_clientes);
+
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +29,9 @@ $query = mysqli_query($mysqli, $sql);
     <title>Recomex | Estoque</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="../../../img/logo_recomex_apenas_R.png">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="venda.js"></script>
 </head>
 
 <body>
@@ -142,7 +150,7 @@ $query = mysqli_query($mysqli, $sql);
 
     <!-- Modal de Vender Produto  -->
     <div id="ven" class="modal">
-        <form class="modal-content  animate" method="POST" action="../../helpers/venda.php">
+        <form class="modal-content  animate">
             <div class="container1">
                 <div class="hed">
                     <h3>Vender Produto</h3>
@@ -153,10 +161,60 @@ $query = mysqli_query($mysqli, $sql);
                 </div>
 
                 <div class="man_ven">
-                    <input type="text" placeholder="Nome do Produto" name="namev" required>
-                    <input type="text" placeholder="Quantidade" name="quantidadev" required>
-                    <input type="text" placeholder="Custo(Preço de compra)" name="custov" required>
-                    <input type="text" placeholder="Preço de Venda" name="precov" required>
+
+                    <select class="nomedocliente" id="namev" name="namev">
+                        <option value="">Nome do Cliente</option>
+                        <?php
+                        while ($datas = mysqli_fetch_assoc($quer)) {
+                            $id = $datas['id_clientes'];
+                            echo "<option value='$id' >" . $datas['nome'] . "</option>";
+                        }
+                        ?>
+                    </select>
+
+                    <div class="productos">
+
+                        <select class="" name="nam" id="nivel" required>
+                            <option value="">Produto</option>
+                            <?php
+                            while ($datas = mysqli_fetch_assoc($querys)) {
+                                $id = $datas['id'];
+                                $nomesv = $datas['nome'];
+                                echo "<option value='$nomesv' >" . $nomesv . "</option>";
+                            }
+                            ?>
+                        </select>
+
+                        <input type="text" id="quantaee" placeholder="Quantidade" name="quantee" required>
+
+                        <input type="text" placeholder="Valor/Quantidade" name="valoe" required>
+
+                        <a onclick="addProduto()"><img src="../../../img/Group 5.png" alt=""></a>
+
+                    </div>
+
+                    <div class="prodt">
+
+                        <div class="header_prodt">
+                            <h5>Nome</h5>
+                            <div>
+                                <h5>Quantidade</h5>
+                                <h5>Valor/Quantidade</h5>
+                            </div>
+                        </div>
+
+                        <div class="result_prodt">
+
+                        </div>
+
+                        <h4 id="total">Total: R$ 00,00</h4>
+                    </div>
+
+                    <div class="footer">
+                        <input type="text" placeholder="Forma de pagamento" class="formadepagamento" required>
+                        <input type="date" placeholder="Data de Hoje" name="" id="date">
+                    </div>
+
                 </div>
             </div>
         </form>
@@ -181,9 +239,26 @@ $query = mysqli_query($mysqli, $sql);
         function edti() {
             document.getElementById('edt').style.display = 'block';
         }
-    </script>
 
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+        // script do modal de venda
+
+        $(".salv").click((e) => {
+            e.preventDefault();
+
+            let dados = {
+                nome_cliente: $('#namev').val(),
+                itens: items,
+                forma: $('.formadepagamento').val(),
+                data: $('#date').val(),
+            }
+
+            $.post("recebe.php", dados, function(result, staus) {
+                console.log(staus)
+                console.log(result)
+            })
+
+        })
+    </script>
 
 </body>
 

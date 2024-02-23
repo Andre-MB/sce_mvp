@@ -3,15 +3,15 @@
 include('../../helpers/protect.php');
 include('../../helpers/conexao.php');
 
-$filtro_sql = "";
+// $filtro_sql = "";
 
-if ($_POST["filtro"] != null) {
-    $filtro = $_POST["filtro"];
-    $filtro_sql = "WHERE id='$filtro' OR descricao LIKE '%$filtro%' OR nome LIKE '%$filtro%' ";
-}
+// if ($_POST["filtro"] != null) {
+//     $filtro = $_POST["filtro"];
+//     $filtro_sql = "WHERE id='$filtro' OR descricao LIKE '%$filtro%' OR nome LIKE '%$filtro%' ";
+// }
 
-$sql = "SELECT * FROM produtos $filtro_sql";
-$query = mysqli_query($mysqli, $sql);
+// $sql = "SELECT * FROM notas $filtro_sql";
+// $query = mysqli_query($mysqli, $sql);
 
 ?>
 
@@ -22,7 +22,7 @@ $query = mysqli_query($mysqli, $sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recomex | Notas Fiscais</title>
-    <link rel="stylesheet" href="setyle.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="../../../img/logo_recomex_apenas_R.png">
 </head>
 
@@ -68,53 +68,49 @@ $query = mysqli_query($mysqli, $sql);
         <div class="container" style=" background: white; box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.25)">
             <nav style="display: flex; justify-content:space-between; ">
                 <div>
-                    <button class="btn-add" onclick="document.getElementById('add').style.display='block'">Adicionar produto</button>
-                    <button class="btn-ven" onclick="document.getElementById('ven').style.display='block'">Vender produto </button>
+                    <h4>Minhas Notas Fiscais</h4>
                 </div>
                 <form method="POST" action="">
-                    <input class="input_search" type="text" placeholder="Pesquise(Código, Nome ou Descrição)" value="<?php echo $_POST["filtro"]; ?>" name="filtro">
+                    <input class="input_search" type="text" placeholder="Pesquise (Código, Nome, CNPJ/CPF ou Data)" value="<?php echo $_POST["filtro"]; ?>" name="filtro">
                 </form>
             </nav>
 
+
             <div class="tabl">
+
                 <table class="table">
+
                     <thead>
                         <th class="coluna-um" scope="col">Código</th>
                         <th scope="col">Nome</th>
-                        <th scope="col">Descrição</th>
-                        <th scope="col">NCM</th>
-                        <th scope="col">Quantidade</th>
-                        <th scope="col">Custo</th>
-                        <th scope="col">Preço</th>
+                        <th scope="col">CNPJ/CPF</th>
+                        <th scope="col">Cidade</th>
+                        <th scope="col">Telefone</th>
+                        <th scope="col">Data</th>
                     </thead>
-                    <tbody>
-                        <?php
-                        while ($data = mysqli_fetch_assoc($query)) {
-                            $res = $data['custo'];
-                            $re = $data['preco'];
-                            $id = $data['id'];
 
-                            echo "<tr >";
-                            echo "<td class=\"pri\" >"   . $data['id'] . "</td>";
-                            echo "<td>"   . $data['nome'] . "</td>";
-                            echo "<td>"   . $data['descricao'] . "</td>";
-                            echo "<td>"   . $data['ncm'] . "</td>";
-                            echo "<td>"   . $data['quantidade'] . ' ' . $data['unidade_de_medida'] . "</td>";
-                            echo "<td>" . 'R$ '  . number_format($res, 2, ',') . "</td>";
-                            echo "<td >" . 'R$ '  . number_format($re, 2, ',') . "</td>";
-                            echo "<td class=\"penult\"  > <a href='../modal-de-editar/edite.php?id=$id' > <img src='../../../img/pencil.png' alt=''> </a> </td>";
-                            echo "<td class=\"ult\"  > <a href='../../helpers/delete.php?id=$id'>  <img src='../../../img/trash.png' alt=''> </a> </td>";
-                        }
-                        ?>
+                    <tbody class="tbody">
+
                     </tbody>
+
                 </table>
+
+                <div class="nenhumaNota" style="display: flex; 	justify-content: center; align-items: center;">
+                    <div class="divnenhumaNota" style="width: 300px">
+                        <img src=" ../../../img/NFE-PNG.png" alt="">
+                        <p> Nenhuma Nota Fical</p>
+                    </div>
+                </div>
+
             </div>
+
         </div>
+
     </main>
 
 
     <!-- Modal de Adicionar Produto -->
-    <div id="add" class="modal">
+    <div id=" add" class="modal">
 
         <form class="modal-content animate" method="POST" action="../../helpers/insert.php">
             <div class="container1">
@@ -165,22 +161,22 @@ $query = mysqli_query($mysqli, $sql);
 
 
     <script>
-        var modal = document.getElementById('add');
-        var modal2 = document.getElementById('ven');
+        // var modal = document.getElementById('add');
+        // var modal2 = document.getElementById('ven');
 
-        window.onclick = function(event) {
-            if (event.target === modal2) {
-                modal2.style.display = "none";
-            }
+        // window.onclick = function(event) {
+        //     if (event.target === modal2) {
+        //         modal2.style.display = "none";
+        //     }
 
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
-        }
+        //     if (event.target === modal) {
+        //         modal.style.display = "none";
+        //     }
+        // }
 
-        function edti() {
-            document.getElementById('edt').style.display = 'block';
-        }
+        // function edti() {
+        //     document.getElementById('edt').style.display = 'block';
+        // }
     </script>
 
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>

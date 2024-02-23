@@ -7,11 +7,17 @@ $filtro_sql = "";
 
 if ($_POST["filtro"] != null) {
     $filtro = $_POST["filtro"];
-    $filtro_sql = "WHERE id='$filtro' OR descricao LIKE '%$filtro%' OR nome LIKE '%$filtro%' ";
+    $filtro_sql = "WHERE idvendas='$filtro' OR c.nome LIKE '%$filtro%' OR dataV LIKE '%$filtro%'";
 }
 
-$sql = "SELECT * FROM vendas $filtro_sql";
+// $sql = "SELECT * FROM vendas v INNER JOIN clientes c on c.id_clientes = v.id_clientes  $filtro_sql";
+// $query = mysqli_query($mysqli, $sql);
+
+$sql = "SELECT * FROM vendas v 
+inner join clientes c on c.id_clientes = v.id_clientes $filtro_sql ORDER BY idvendas ";
 $query = mysqli_query($mysqli, $sql);
+
+
 
 ?>
 
@@ -69,7 +75,7 @@ $query = mysqli_query($mysqli, $sql);
             <nav style="display: flex; justify-content:space-between; ">
                 <h3>Histórico de vendas</h3>
                 <form method="POST" action="">
-                    <input class="input_search" type="text" placeholder="Pesquise(Código, Nome ou Descrição)" value="<?php echo $_POST["filtro"]; ?>" name="filtro">
+                    <input class="input_search" type="text" placeholder="Pesquise(Código, Nome ou Data)" value="<?php echo $_POST["filtro"]; ?>" name="filtro">
                 </form>
             </nav>
 
@@ -77,27 +83,61 @@ $query = mysqli_query($mysqli, $sql);
                 <table class="table">
                     <thead>
                         <th class="coluna-um" scope="col">Código</th>
-                        <th scope="col">Data</th>
                         <th scope="col">Nome</th>
-                        <th scope="col">Produto(s)</th>
-                        <th scope="col">Quantidade</th>
-                        <th scope="col">Valor da Venda</th>
+                        <th scope="col">Produto(s) e Quantidade</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Forma de Pagamento</th>
+                        <th scope="col">Total</th>
                     </thead>
                     <tbody>
                         <?php
+
                         while ($data = mysqli_fetch_assoc($query)) {
-                            $res = $data['valor_vendido'];
-                            $id = $data['id'];
+                            $res = $data['qtdVenda'];
+                            $id = $data['idvendas'];
+
+                            // print_r(0);
+
+                            $sqldois = "SELECT i.idintePV FROM  intePV i 
+                            inner join produtos p on p.id = i.idprodutos WHERE i.idvendas = '$id' ";
+
+                            $queries = mysqli_query($mysqli, $sqldois);
+
+                            $produto = '';
+
+                            while ($resultado = mysqli_fetch_assoc($queries)) {
+
+                                $idp = $resultado['idintePV'];
+
+                                $sqltr = "SELECT p.nome, i.quantidadeP FROM  intePV i 
+                                inner join produtos p on p.id = i.idprodutos WHERE i.idintePV = '$idp' ";
+
+                                $queriesy = mysqli_query($mysqli, $sqltr);
+
+                                $resultados = mysqli_fetch_assoc($queriesy);
+
+                                // print_r(mysqli_num_rows($queriesy));
+
+                                $produto = $produto . $resultados['nome'] . " x " . $resultados['quantidadeP'] . " ";
+
+                                // print_r($produto);
+
+                                $idp++;
+                            };
+
+                            // echo "</br>";
 
                             echo "<tr >";
-                            echo "<td class=\"pri\" >"   . $data['id'] . "</td>";
-                            echo "<td>"   . $data['data'] . "</td>";
-                            echo "<td>"   . $data['nomeCliente'] . "</td>";
-                            echo "<td>"   . $data['nomeProduto'] . "</td>";
-                            echo "<td>"   . $data['quantidadeDVP'] . "</td>";
+                            echo "<td class=\"pri\" >"   . $data['idvendas'] . "</td>";
+                            echo "<td>"   . $data['nome'] . "</td>";
+                            echo "<td>"   . $produto . "</td>";
+                            echo "<td>"   . $data['dataV'] . "</td>";
+                            echo "<td>"   . $data['forma'] . "</td>";
                             echo "<td>" . 'R$ '  . number_format($res, 2, ',') . "</td>";
                             echo "<td class=\"penult\"  > <a href='../modal-de-editar/edite.php?id=$id' > <img src='../../../img/pencil.png' alt=''> </a> </td>";
                             echo "<td class=\"ult\"  > <a href='../../helpers/delete.php?id=$id'>  <img src='../../../img/trash.png' alt=''> </a> </td>";
+
+                            // $produtos = " ";
                         }
                         ?>
                     </tbody>
