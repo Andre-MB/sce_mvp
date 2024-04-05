@@ -236,6 +236,28 @@ if (!empty($_GET['id'])) {
         function isCelular(event, input) {
             var v = input.value;
 
+            document.addEventListener("keydown", function(event) {
+                console.log(event.key);
+
+                if (event.key === "Backspace" && !isBackspacePressed) {
+                    console.log("Apertou backspace");
+
+                    var valor = input.value;
+
+                    if (valor.length > 0) {
+                        input.value = valor.slice(0, -1);
+                    }
+
+                    isBackspacePressed = true;
+                }
+            });
+
+            document.addEventListener("keyup", function(event) {
+                if (event.key === "Backspace") {
+                    isBackspacePressed = false;
+                }
+            });
+
             if (v[v.length - 1] != '(' && v[v.length - 1] != ')') {
                 if (isNaN(v[v.length - 1])) {
                     input.value = v.substring(0, v.length - 1);
@@ -248,13 +270,12 @@ if (!empty($_GET['id'])) {
                     input.value = t.join('');
                 }
             }
-
-            if (v.length == 3 && v.indexOf(')') === -1) {
-                input.value += ') ';
-            }
-
             if (v.length == 10) {
                 input.value += '-';
+            }
+
+            if (v.length == 3) {
+                input.value += ') ';
             }
 
             input.setAttribute("maxlength", "15");
