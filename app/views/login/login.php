@@ -12,26 +12,27 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
         $email = $mysqli->real_escape_string($_POST['email']);
         $senha = $mysqli->real_escape_string($_POST['senha']);
 
-        $sql_code = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
-
+        $sql_code = "SELECT * FROM usuarios WHERE email = '$email' LIMIT 1";
         $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
 
+        $usuario = $sql_query->fetch_assoc();
         $quantidade = $sql_query->num_rows;
 
-        if ($quantidade == 1) {
+        if (password_verify($senha, $usuario['senha'])) {
 
-            $usuario = $sql_query->fetch_assoc();
+            if ($quantidade == 1) {
 
-            if (!isset($_SESSION)) {
-                session_start();
+                if (!isset($_SESSION)) {
+                    session_start();
+                }
+
+                $_SESSION['id'] = $usuario['id'];
+                $_SESSION['nome'] = $usuario['nome'];
+
+                header("Location: ../Estoque/estoque.php");
+            } else {
+                echo  "<script>alert('Falha ao logar! E-mail ou senha incorretos!')</script>";
             }
-
-            $_SESSION['id'] = $usuario['id'];
-            $_SESSION['nome'] = $usuario['nome'];
-
-            header("Location: ../Estoque/estoque.php");
-        } else {
-            echo  "<script>alert('Falha ao logar! E-mail ou senha incorretos!')</script>";
         }
     }
 }

@@ -11,11 +11,12 @@ if (isset($_POST['upda'])) {
     $barirro = $_POST["bairro"];
     $endereco = $_POST["endereco"];
     $email = $_POST["email"];
+    $celular = $_POST["celular"];
     $cidade = $_POST["cidade"];
 
-    $sqlUpadate = "UPDATE clientes SET nome='$nome', cnpj_cpf='$cnpj_cpf', inscrição_estadual='$insc', numero='$numero',cep='$cep', bairro='$barirro' , endereco='$endereco', email='$email', cidade='$cidade' WHERE id_clientes='$id';";
+    $sqlUpadate = "UPDATE clientes SET nome='$nome', cnpj_cpf='$cnpj_cpf', inscrição_estadual='$insc', numero='$numero',cep='$cep', bairro='$barirro' , endereco='$endereco', email='$email', cidade='$cidade', celular='$celular' WHERE id_clientes='$id'";
 
     $result = mysqli_query($mysqli, $sqlUpadate);
 }
 
-header('Location: ../views/Clientes/clientes.php');
+header('Location: ../views/Clientes/clientes.php?clienteedt=clienteedt');

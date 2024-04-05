@@ -3,17 +3,14 @@
 include('../../helpers/protect.php');
 include('../../helpers/conexao.php');
 
-$filtro_sql = "";
-
-if ($_POST["filtro"] != null) {
-    $filtro = $_POST["filtro"];
-    $filtro_sql = "WHERE idvendas='$filtro' OR c.nome LIKE '%$filtro%' OR dataV LIKE '%$filtro%'";
-};
-
+// query de produtos
 $sql = "SELECT * FROM vendas v 
-inner join clientes c on c.id_clientes = v.id_clientes $filtro_sql ORDER BY idvendas ";
+inner join clientes c on c.id_clientes = v.id_clientes ORDER BY idvendas ";
 $query = mysqli_query($mysqli, $sql);
 
+if (!empty($_GET['id'])) {
+    $idproduto = $_GET['id'];
+}
 
 ?>
 
@@ -23,9 +20,12 @@ $query = mysqli_query($mysqli, $sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recomex | Histórico Vendas</title>
-    <link rel="stylesheet" href="setyle.css">
+    <title>Recomex | Estoque</title>
+    <link rel="stylesheet" href="stylee.css">
     <link rel="icon" type="image/x-icon" href="../../../img/logo_recomex_apenas_R.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -51,7 +51,7 @@ $query = mysqli_query($mysqli, $sql);
         </a>
 
         <a href="../Vendas/vendas.php">
-            <div class="vendas">
+            <div class="vendas foco">
                 <img src="../../../img/arcticons_notebook.png" height="40vh" alt="">
                 <h3>Histórico de Vendas</h3>
             </div>
@@ -67,8 +67,8 @@ $query = mysqli_query($mysqli, $sql);
     </header>
 
     <main>
-        <div class="container">
-            <nav>
+        <div class="container" style=" background: white; box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.25)">
+            <nav style="display: flex; justify-content:space-between; ">
                 <h3>Histórico de vendas</h3>
                 <form method="POST" action="">
                     <input class="input_search" type="text" placeholder="Pesquise(Código, Nome ou Data)" value="<?php echo $_POST["filtro"]; ?>" name="filtro">
@@ -96,7 +96,7 @@ $query = mysqli_query($mysqli, $sql);
                             // print_r(0);
 
                             $sqldois = "SELECT i.idintePV FROM  intePV i 
-                            inner join produtos p on p.id = i.idprodutos WHERE i.idvendas = '$id' ";
+    inner join produtos p on p.id = i.idprodutos WHERE i.idvendas = '$id' ";
 
                             $queries = mysqli_query($mysqli, $sqldois);
 
@@ -107,7 +107,7 @@ $query = mysqli_query($mysqli, $sql);
                                 $idp = $resultado['idintePV'];
 
                                 $sqltr = "SELECT p.nome, i.quantidadeP, p.unidade_de_medida FROM  intePV i 
-                                inner join produtos p on p.id = i.idprodutos WHERE i.idintePV = '$idp' ";
+        inner join produtos p on p.id = i.idprodutos WHERE i.idintePV = '$idp' ";
 
                                 $queriesy = mysqli_query($mysqli, $sqltr);
 
@@ -136,8 +136,8 @@ $query = mysqli_query($mysqli, $sql);
                             echo "<td>"   . $produto . "</td>";
                             echo "<td>"   . $date . "</td>";
                             echo "<td>"   . $data['forma'] . "</td>";
-                            echo "<td>" . 'R$ '  . number_format($res, 2, ',', '.') . "</td>";
-                            echo "<td class=\"penult\"  > <a href='' > <img src='../../../img/gerarnota.png' alt=''> </a> </td>";
+                            echo "<td>" . 'R$ '  . number_format($res, 2, ',') . "</td>";
+                            echo "<td class=\"penult\"  > <a href='' > <img src='../../../img/gerarnota.png' width='32px' alt=''> </a> </td>";
                             echo "<td class=\"ult\"  > <a href='../../views/modal-de-confirmar-delete/modalconfdeletevenda.php?id=$id'>  <img src='../../../img/trash.png' alt=''> </a> </td>";
 
                             // $produtos = " ";
@@ -148,12 +148,7 @@ $query = mysqli_query($mysqli, $sql);
 
                 <?php
                 if (mysqli_num_rows($query) == 0) {
-                    echo "<div class='nenhumaNota' style='display: flex; 	justify-content: center; align-items: center;'>
-                    <div class='divnenhumaNota' style='width: 300px'>
-                        <img src='../../../img/carbon_sales-ops.png' width='150px' alt=''>
-                        <p> Nenhum cliente encontrado</p>
-                    </div>
-                </div>";
+                    echo "Nenhuma venda cadastrado";
                 }
                 ?>
 
@@ -161,78 +156,33 @@ $query = mysqli_query($mysqli, $sql);
         </div>
     </main>
 
-
-    <!-- Modal de Adicionar Produto -->
-    <div id="add" class="modal">
-
-        <form class="modal-content animate" method="POST" action="../../helpers/insert.php">
-            <div class="container1">
-                <div class="hed">
-                    <h3>Adicionar Produto</h3>
-                    <div>
-                        <button class="can" onclick="document.getElementById('add').style.display='none'">Cancelar</button>
-                        <button class="salv" type="submit">Salvar</button>
-                    </div>
-                </div>
-
-                <div class="man">
-                    <input type="text" placeholder="Nome do Produto" name="name" required>
-                    <input type="text" placeholder="UNID-Unidade" name="unidade_de_medida" required>
-                    <input type="text" placeholder="Quantidade" name="quantidade" required>
-                    <input type="text" placeholder="Descrição(Branco, Tipo, Tamanho)" name="descricao">
-                    <input type="text" placeholder="Custo(Preço de compra)" name="custo" required>
-                    <input type="text" placeholder="Preço de Venda" name="preco" required>
-                    <input type="text" placeholder="NCM" name="ncm">
-                    <input type="text" placeholder="Origem" name="origem">
-                </div>
-            </div>
-        </form>
-    </div>
-
     <!-- Modal de Vender Produto  -->
     <div id="ven" class="modal">
-        <form class="modal-content  animate" method="POST" action="../../helpers/venda.php">
-            <div class="container1">
-                <div class="hed">
-                    <h3>Vender Produto</h3>
-                    <div>
-                        <button class="can" onclick="document.getElementById('ven').style.display='none'">Cancelar</button>
-                        <button class="salv" type="submit">Salvar</button>
-                    </div>
-                </div>
+        <form class="modal-content  animate" method="POST" action="../../helpers/deletehv.php">
 
-                <div class="man_ven">
-                    <input type="text" placeholder="Nome do Produto" name="namev" required>
-                    <input type="text" placeholder="Quantidade" name="quantidadev" required>
-                    <input type="text" placeholder="Custo(Preço de compra)" name="custov" required>
-                    <input type="text" placeholder="Preço de Venda" name="precov" required>
+            <div class="main_modal">
+                <img src="../../../img/typcn_delete-outline.png" alt="">
+                <h3>Deletar Venda ?</h3>
+                <div>
+                    <input type="hidden" name="id" value="<?php echo $idproduto ?>">
+                    <button class="can"><a href="../Vendas/vendas.php">Cancelar</a></button>
+                    <button class="salv" type="submit">Deletar</button>
                 </div>
             </div>
+
         </form>
     </div>
-
 
 
     <script>
-        var modal = document.getElementById('add');
         var modal2 = document.getElementById('ven');
 
         window.onclick = function(event) {
             if (event.target === modal2) {
-                modal2.style.display = "none";
+                location.href = "../Vendas/vendas.php"
             }
-
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
-        }
-
-        function edti() {
-            document.getElementById('edt').style.display = 'block';
         }
     </script>
-
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
 
 </body>
 

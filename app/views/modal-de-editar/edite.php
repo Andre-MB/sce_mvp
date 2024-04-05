@@ -66,7 +66,7 @@ if (!empty($_GET['id'])) {
         <a href="../Vendas/vendas.php">
             <div class="vendas">
                 <img src="../../../img/arcticons_notebook.png" height="40vh" alt="">
-                <h3>Histórico Vendas</h3>
+                <h3>Histórico de Vendas</h3>
             </div>
         </a>
 
@@ -142,12 +142,25 @@ if (!empty($_GET['id'])) {
 
             <div class="man">
                 <input type="text" placeholder="Nome do Produto" value="<?php echo $nome ?>" name="name">
-                <input type="text" placeholder="UNID-Unidade" value="<?php echo $unidade_de_medida ?>" name="unidade_de_medida">
-                <input type="text" placeholder="Quantidade" value="<?php echo $quantidade ?>" name="quantidade">
+                <select name="unidade_de_medida" value="">
+                    <option value="<?php echo $unidade_de_medida ?>"><?php echo $unidade_de_medida ?></option>
+                    <option value="un">Unidade(un)</option>
+                    <option value="Kg">Quilograma(Kg)</option>
+                    <option value="g">Grama(g)</option>
+                    <option value="mg">Miligrama(mg)</option>
+                    <option value="m">Metro(m)</option>
+                    <option value="mm">Milímetro(mm)</option>
+                    <option value="cm">Centímetro(cm)</option>
+                    <option value="m²">Metro Quadrado(M²)</option>
+                    <option value="m³">Metro Cúbico(M³)</option>
+                    <option value="l">Litro(L)</option>
+                    <option value="mL">Mililitro(L)</option>
+                </select>
+                <input type="text" oninput="semString(this)" placeholder="Quantidade" value="<?php echo $quantidade ?>" name="quantidade">
                 <input type="text" placeholder="Descrição(Branco, Tipo, Tamanho)" value="<?php echo $descricao ?>" name="descricao">
-                <input type="text" placeholder="Custo(Preço de compra)" value="<?php echo $custo ?>" name="custo">
-                <input type="text" placeholder="Preço de Venda" value="<?php echo $preco ?>" name="preco">
-                <input type="text" placeholder="NCM" value="<?php echo $ncm ?>" name="ncm">
+                <input type="text" oninput="semString(this)" placeholder="Custo(Preço de compra)" value="<?php echo $custo ?>" name="custo">
+                <input type="text" oninput="semString(this)" placeholder="Preço de Venda" value="<?php echo $preco ?>" name="preco">
+                <input type="text" oninput="semString(this)" placeholder="NCM" value="<?php echo $ncm ?>" name="ncm">
                 <input type="text" placeholder="Origem" value="<?php echo $origem ?>" name="origem">
                 <input type="hidden" name="id" value="<?php echo $idproduto ?>">
             </div>
@@ -160,6 +173,18 @@ if (!empty($_GET['id'])) {
         window.onclick = function(event) {
             if (event.target === modal) {
                 location.href = '../Estoque/estoque.php'
+            }
+        }
+
+        function semString(i) {
+            var v = i.value;
+
+            // impede entrar outro caractere que não seja número
+            if (v[v.length - 1] == ',' || v[v.length - 1] == '.') {
+
+            } else if (isNaN(v[v.length - 1])) {
+                i.value = v.substring(0, v.length - 1);
+                return;
             }
         }
     </script>

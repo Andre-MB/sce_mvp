@@ -2,12 +2,24 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	text-decoration: none;
 }
 
 body {
 	background-color: #dae4e6;
 	display: flex;
 	flex-direction: row;
+	overflow: hidden;
+}
+
+.can a {
+	text-decoration: none;
+	padding: 5px 5px;
+	color: #fff;
+}
+
+a::after {
+	color: #fff;
 }
 
 a {
@@ -17,7 +29,7 @@ a {
 header {
 	width: 15vw;
 	height: auto;
-	background: #6F0000;
+	background: #6f0000;
 	box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
 	display: flex;
 	flex-direction: column;
@@ -38,17 +50,16 @@ header {
 	padding: 5px 0;
 }
 
-.estoque:hover {
-	background-color: rgba(255, 146, 0, 0.34);
-}
-
 .clientes {
 	display: flex;
 	align-items: center;
-	background-color: rgba(255, 146, 0, 0.34);
 	border-top: solid 1px #FF9200;
 	color: #FF9200;
 	padding: 5px 5px;
+}
+
+.foco{
+	background-color: rgba(255, 146, 0, 0.34);
 }
 
 .clientes>h3 {
@@ -63,10 +74,6 @@ header {
 	padding: 5px 5px;
 }
 
-.vendas:hover {
-	background-color: rgba(255, 146, 0, 0.34);
-}
-
 .vendas>h3 {
 	padding-left: 10px;
 }
@@ -78,10 +85,6 @@ header {
 	border-bottom: solid 1px #FF9200;
 	color: #FF9200;
 	padding: 5px 5px;
-}
-
-.notas:hover {
-	background-color: rgba(255, 146, 0, 0.34);
 }
 
 .notas>h3 {
@@ -132,7 +135,7 @@ main {
 }
 
 .input_search {
-	width: 400px;
+	width: 500px;
 	background-color: #E9EFF0;
 	border: solid 1px #7a7a7a;
 	border-radius: 15px;
@@ -147,9 +150,10 @@ main {
 	z-index: 1;
 	left: 0;
 	top: 0;
-	width: 105%;
+	width: 100%;
 	height: 100%;
 	overflow: auto;
+	background-color: rgb(0, 0, 0);
 	background-color: rgba(0, 0, 0, 0.4);
 	padding-top: 60px;
 }
@@ -159,7 +163,27 @@ main {
 	margin: 5% auto 15% auto;
 	padding: 15px;
 	border-radius: 20px;
-	width: 40%;
+	width: 20%;
+}
+
+.modal_alert{
+	display: block;
+	position: absolute;
+	z-index: 1;
+	background-color: #ffcece;
+	margin: 43% 76% ;
+	padding: 15px;
+	border-radius: 5px;
+	border-left: 5px solid #6f0000;
+	width: 20%;
+}
+
+.main_modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .hed {
@@ -173,10 +197,10 @@ main {
 }
 
 .salv {
-	background-color: #1e9480;
+	background-color: #a90000;
 	border: none;
 	border-radius: 15px;
-	color: #fff;
+	color: #ffffff;
 	padding: 5px;
 	cursor: pointer;
 }
@@ -189,16 +213,6 @@ main {
 	padding: 5px;
 	margin-right: 10px;
 	cursor: pointer;
-	text-decoration: none;
-}
-
-.can a {
-	padding: 5px;
-	color: #fff;
-}
-
-a::after {
-	color: #fff;
 }
 
 .man {
@@ -207,40 +221,36 @@ a::after {
 	grid-template-columns: auto auto auto auto;
 }
 
-input[name='cnpj_cpf'] {
-	grid-column: 1/3;
-}
-
-input[name='inscrição_estadual'] {
-	grid-column: 3/5;
-}
-
 input[name='name'] {
 	grid-column: 1/5;
 }
 
-input[name='numero'] {
-	grid-column: 1/5;
-}
-
-input[name='cep'] {
+input[name='unidade_de_medida'] {
 	grid-column: 1/3;
 }
 
-input[name='bairro'] {
+input[name='quantidade'] {
 	grid-column: 3/5;
 }
 
-input[name='endereco'] {
+input[name='descricao'] {
+	grid-column: 1/5;
+}
+
+input[name='custo'] {
+	grid-column: 1/3;
+}
+
+input[name='preco'] {
+	grid-column: 3/5;
+}
+
+input[name='ncm'] {
 	grid-column: 1/2;
 }
 
-input[name='cidade'] {
+input[name='origem'] {
 	grid-column: 2/5;
-}
-
-input[name='email'] {
-	grid-column: 1/5;
 }
 
 .man>input {

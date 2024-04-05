@@ -10,8 +10,8 @@ include('../../helpers/conexao.php');
 //     $filtro_sql = "WHERE id='$filtro' OR descricao LIKE '%$filtro%' OR nome LIKE '%$filtro%' ";
 // }
 
-// $sql = "SELECT * FROM notas $filtro_sql";
-// $query = mysqli_query($mysqli, $sql);
+$sql = "SELECT * FROM notas $filtro_sql";
+$query = mysqli_query($mysqli, $sql);
 
 ?>
 
@@ -51,7 +51,7 @@ include('../../helpers/conexao.php');
         <a href="../Vendas/vendas.php">
             <div class="vendas">
                 <img src="../../../img/arcticons_notebook.png" height="40vh" alt="">
-                <h3>Histórico Vendas</h3>
+                <h3>Histórico de Vendas</h3>
             </div>
         </a>
 
@@ -95,89 +95,22 @@ include('../../helpers/conexao.php');
 
                 </table>
 
-                <div class="nenhumaNota" style="display: flex; 	justify-content: center; align-items: center;">
-                    <div class="divnenhumaNota" style="width: 300px">
-                        <img src=" ../../../img/NFE-PNG.png" alt="">
-                        <p> Nenhuma Nota Fical</p>
-                    </div>
-                </div>
+                <?php
+                if (mysqli_num_rows($query) == 0) {
+                    echo "<div class='nenhumaNota' style='display: flex; justify-content: center; align-items: center;'>
+                        <div class='divnenhumaNota' style='width: 400px'>
+                            <img src=' ../../../img/NF-e.png' width='400px' alt=''>
+                            <p> Nenhuma Nota Fical</p>
+                        </div>
+                    </div>";
+                }
+                ?>
 
             </div>
 
         </div>
 
     </main>
-
-
-    <!-- Modal de Adicionar Produto -->
-    <div id=" add" class="modal">
-
-        <form class="modal-content animate" method="POST" action="../../helpers/insert.php">
-            <div class="container1">
-                <div class="hed">
-                    <h3>Adicionar Produto</h3>
-                    <div>
-                        <button class="can" onclick="document.getElementById('add').style.display='none'">Cancelar</button>
-                        <button class="salv" type="submit">Salvar</button>
-                    </div>
-                </div>
-
-                <div class="man">
-                    <input type="text" placeholder="Nome do Produto" name="name" required>
-                    <input type="text" placeholder="UNID-Unidade" name="unidade_de_medida" required>
-                    <input type="text" placeholder="Quantidade" name="quantidade" required>
-                    <input type="text" placeholder="Descrição(Branco, Tipo, Tamanho)" name="descricao">
-                    <input type="text" placeholder="Custo(Preço de compra)" name="custo" required>
-                    <input type="text" placeholder="Preço de Venda" name="preco" required>
-                    <input type="text" placeholder="NCM" name="ncm">
-                    <input type="text" placeholder="Origem" name="origem">
-                </div>
-            </div>
-        </form>
-    </div>
-
-    <!-- Modal de Vender Produto  -->
-    <div id="ven" class="modal">
-        <form class="modal-content  animate" method="POST" action="../../helpers/venda.php">
-            <div class="container1">
-                <div class="hed">
-                    <h3>Vender Produto</h3>
-                    <div>
-                        <button class="can" onclick="document.getElementById('ven').style.display='none'">Cancelar</button>
-                        <button class="salv" type="submit">Salvar</button>
-                    </div>
-                </div>
-
-                <div class="man_ven">
-                    <input type="text" placeholder="Nome do Produto" name="namev" required>
-                    <input type="text" placeholder="Quantidade" name="quantidadev" required>
-                    <input type="text" placeholder="Custo(Preço de compra)" name="custov" required>
-                    <input type="text" placeholder="Preço de Venda" name="precov" required>
-                </div>
-            </div>
-        </form>
-    </div>
-
-
-
-    <script>
-        // var modal = document.getElementById('add');
-        // var modal2 = document.getElementById('ven');
-
-        // window.onclick = function(event) {
-        //     if (event.target === modal2) {
-        //         modal2.style.display = "none";
-        //     }
-
-        //     if (event.target === modal) {
-        //         modal.style.display = "none";
-        //     }
-        // }
-
-        // function edti() {
-        //     document.getElementById('edt').style.display = 'block';
-        // }
-    </script>
 
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
 
