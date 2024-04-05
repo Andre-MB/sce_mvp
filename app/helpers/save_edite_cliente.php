@@ -14,9 +14,16 @@ if (isset($_POST['upda'])) {
     $celular = $_POST["celular"];
     $cidade = $_POST["cidade"];
 
-    $sqlUpadate = "UPDATE clientes SET nome='$nome', cnpj_cpf='$cnpj_cpf', inscrição_estadual='$insc', numero='$numero',cep='$cep', bairro='$barirro' , endereco='$endereco', email='$email', cidade='$cidade', celular='$celular' WHERE id_clientes='$id'";
+    $sqlConferirSeNaoTemInformacoesSemelhantes = "SELECT * FROM clientes WHERE nome='$nome' and cnpj_cpf='$cnpj_cpf' and inscrição_estadual='$insc' and numero='$numero' and cep='$cep' and bairro='$barirro' and endereco='$endereco' and cidade='$cidade' and email='$email' and celular='$celular'";
+    $query = mysqli_query($mysqli, $sqlConferirSeNaoTemInformacoesSemelhantes);
 
-    $result = mysqli_query($mysqli, $sqlUpadate);
+    if (mysqli_num_rows($query) == 0) {
+        $sqlUpadate = "UPDATE clientes SET nome='$nome', cnpj_cpf='$cnpj_cpf', inscrição_estadual='$insc', numero='$numero',cep='$cep', bairro='$barirro' , endereco='$endereco', email='$email', cidade='$cidade', celular='$celular' WHERE id_clientes='$id'";
+        $result = mysqli_query($mysqli, $sqlUpadate);
+        header('Location: ../views/Clientes/clientes.php?clienteedt=clienteedt');
+    } else {
+        header('Location: ../views/Clientes/clientes.php?clientenedt=clientenedt');
+    }
+} else {
+    header('Location: ../views/Clientes/clientes.php?clientenedt=clientenedt');
 }
-
-header('Location: ../views/Clientes/clientes.php?clienteedt=clienteedt');

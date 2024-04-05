@@ -181,7 +181,11 @@ $query = mysqli_query($mysqli, $sql);
     </div>
 
     <div id="clienteerro" class="modal_alert">
-        <h3>Cliente não adicionado, verifique se não tem dados semelhantes</h3>
+        <h3>Cliente não adicionado, verifique se não tem dados semelhantes a outro</h3>
+    </div>
+
+    <div id="clientenedt" class="modal_alert">
+        <h3>Cliente não editado, verifique se não tem dados semelhantes a outro</h3>
     </div>
 
     <?php
@@ -221,11 +225,11 @@ $query = mysqli_query($mysqli, $sql);
                 </script>";
     }
 
-    if (!empty($_GET['clienteedt'])) {
+    if (!empty($_GET['clientenedt'])) {
         echo "<script>
-                    let conf = document.getElementById('clienteedt');
+                    let conf = document.getElementById('clientenedt');
                     conf.style.display = 'block';
-                    conf.setAttribute('class', 'modal_conf animate__animated animate__bounceInRight')
+                    conf.setAttribute('class', 'modal_alert animate__animated animate__bounceInRight')
                     setTimeout(()=>{conf.style.display = 'none'; location.href='../Clientes/clientes.php'}, 3000)
                 </script>";
     }

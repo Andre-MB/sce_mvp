@@ -86,18 +86,22 @@ if (!empty($_GET['id'])) {
                         <?php
                         while ($data = mysqli_fetch_assoc($query)) {
                             $id = $data['id_clientes'];
+                            $resNum = '';
 
-                            // echo mysqli_num_rows($id);
+                            if ($data['numero'] != '') {
+                                $resNum = $data['numero'] . ", ";
+                            }
+
 
                             echo "<tr >";
                             echo "<td class=\"pri\" >"   . $data['id_clientes'] . "</td>";
                             echo "<td>"   . $data['nome'] . "</td>";
                             echo "<td>"   . $data['cnpj_cpf'] . "</td>";
-                            echo "<td>"   . $data['endereco'] . "</td>";
+                            echo "<td>"   . $resNum . $data['endereco'] . ", " . $data['bairro'] . ", " . $data['cidade'] . "</td>";
                             echo "<td>"   . $data['email'] . "</td>";
-                            echo "<td>"   . $data['numero'] . "</td>";
-                            echo "<td class=\"penult\"  > <a href='../modal-de-editar-cliente/editecliente.php?id=$id' > <img src='../../../img/pencil.png' alt=''> </a> </td>";
-                            echo "<td class=\"ult\"  > <a href='../../helpers/deltecliente.php?id=$id'>  <img src='../../../img/trash.png' alt=''> </a> </td>";
+                            echo "<td>"   . $data['celular'] . "</td>";
+                            echo "<td class=\"penult\"  > <a href='../modal-de-editar/editecliente.php?id=$id' > <img src='../../../img/pencil.png' alt=''> </a> </td>";
+                            echo "<td class=\"ult\"  > <a href='../../views/modal-de-confirmar-delete/modalconfdeletecliente.php?id=$id'>  <img src='../../../img/trash.png' alt=''> </a> </td>";
                         }
 
 

@@ -12,7 +12,7 @@ $email = $_POST["email"];
 $celular = $_POST["celular"];
 $cidade = $_POST["cidade"];
 
-$sqlConferirSeNaoTemInformacoesSemelhantes = "SELECT * FROM clientes WHERE nome='$nome'";
+$sqlConferirSeNaoTemInformacoesSemelhantes = "SELECT * FROM clientes WHERE nome='$nome' or cnpj_cpf='$cnpj_cpf' or inscrição_estadual='$insc' or numero='$numero' or cep='$cep' or bairro='$barirro' or endereco='$endereco' or cidade='$cidade' or email='$email' or celular='$celular'";
 $query = mysqli_query($mysqli, $sqlConferirSeNaoTemInformacoesSemelhantes);
 
 if (mysqli_num_rows($query) == 0) {
@@ -25,6 +25,6 @@ if (mysqli_num_rows($query) == 0) {
     } else {
         echo "Error: " . $sql . ":-" . mysqli_error($conn);
     }
+} else {
+    header("location: ../views/Clientes/clientes.php?clienteerro=clienteerro");
 }
-
-header("location: ../views/Clientes/clientes.php?clienteerro=clienteerro");

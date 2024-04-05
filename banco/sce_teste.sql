@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 05/04/2024 às 13:05
+-- Tempo de geração: 05/04/2024 às 14:48
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -36,7 +36,7 @@ CREATE TABLE `clientes` (
   `email` varchar(150) NOT NULL,
   `cidade` varchar(50) NOT NULL,
   `bairro` varchar(140) NOT NULL,
-  `numero` varchar(140) NOT NULL,
+  `numero` int(11) NOT NULL,
   `cep` varchar(50) NOT NULL,
   `celular` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -46,11 +46,11 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id_clientes`, `nome`, `cnpj_cpf`, `inscrição_estadual`, `endereco`, `email`, `cidade`, `bairro`, `numero`, `cep`, `celular`) VALUES
-(1, 'Joãozinho', '123.123.123-09', '0001', 'Rua Gonçalves Dias, quadra 5, casa 50', 'joão@gmail.com', 'Pará', 'centro', '', '', '(99) 99999-9997'),
-(2, 'Paulo', '321.321.321-08', '0201', 'Rua Das Dores, quadra 15, casa 32', 'paulo@gmail.com', 'São Paulo', 'Lado Leste', '', '', '(99) 99999-9998'),
-(24, 'André Bergê', '321.321.321-07', '0202', 'Maiobão Rua-57 Quadra - 146 Casa- 15', 'andre@gmail.com', 'Paço do Lumiar', 'Novo Horizonte', '15', '65130-000', '(99) 99999-9999'),
-(26, 'Filipe', '12.312.312/3121-23', 'asdf', 'Rua C, Quadra 15, Casa 5, Cafeteira, São Luís', 'filipe@gmail.com', 'São Luís', 'Novo Horizonte', '18', '65130000', '(99) 99999-9996'),
-(27, 'Bruno', '12.312.312/3123-12', '00012', 'Rua C, Quadra 15, Casa 5, Cafeteira, São Luís', 'bruno@gmail.com', 'São Luís', 'adfb', '12', '65130000', '(65) 46974-5489');
+(1, 'Joãozinho', '123.123.123-09', '0001', 'Rua Gonçalves Dias, quadra 5, casa 50', 'joão@gmail.com', 'Pará', 'centro', 11, '', '(99) 92999-9997'),
+(2, 'Paulo', '321.321.321-08', '0201', 'Rua Das Dores, quadra 15, casa 32', 'paulo@gmail.com', 'São Paulo', 'Lado Leste', 10, '', '(99) 99999-9998'),
+(24, 'André Bergê', '321.321.321-07', '0202', 'Maiobão Rua-57 Quadra - 146 Casa- 15', 'andre@gmail.com', 'Paço do Lumiar', 'Novo Horizonte', 15, '65130-000', '(99) 99999-9999'),
+(26, 'Filipe', '12.312.312/3121-23', 'asdf', 'Rua C, Quadra 15, Casa 5, Cafeteira, São Luís', 'filipe@gmail.com', 'São Luís', 'Novo Horizonte', 18, '65130000', '(99) 99999-9996'),
+(27, 'Bruno', '12.312.312/3123-12', '00012', 'Rua C, Quadra 15, Casa 5, Cafeteira, São Luís', 'bruno@gmail.com', 'São Luís', 'adfb', 12, '65130000', '(65) 46974-5489');
 
 -- --------------------------------------------------------
 
@@ -84,19 +84,6 @@ INSERT INTO `intePV` (`idintePV`, `idprodutos`, `idvendas`, `quantidadeP`, `valo
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `notas`
---
-
-CREATE TABLE `notas` (
-  `idnotas` int(50) NOT NULL,
-  `idintePV` int(30) NOT NULL,
-  `idvendas` int(30) NOT NULL,
-  `idclientes` int(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Estrutura para tabela `produtos`
 --
 
@@ -124,26 +111,6 @@ INSERT INTO `produtos` (`id`, `nome`, `unidade_de_medida`, `descricao`, `ncm`, `
 (6, 'bola', 'un', '', '', 48, 5, 20, ''),
 (17, 'carne', 'Kg', 'de boi', '2', 48.5, 10.5, 20, 'sdfsfdsf'),
 (24, 'rosa', 'un', 'pretas', '987585', 48, 2, 20.4, 'dfgdfgsdgs');
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `usuarios`
---
-
-CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(140) DEFAULT NULL,
-  `email` varchar(140) NOT NULL,
-  `senha` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `usuarios`
---
-
-INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`) VALUES
-(1, 'Usuario Teste', 'teste@teste.com', '$2y$10$ui6uSWt3Jx8xS3b59tn15e5LFf0hzqnaezNbKOv58AP83TtSKGibm');
 
 -- --------------------------------------------------------
 
@@ -193,21 +160,9 @@ ALTER TABLE `intePV`
   ADD KEY `fk_intePVvendas` (`idvendas`);
 
 --
--- Índices de tabela `notas`
---
-ALTER TABLE `notas`
-  ADD PRIMARY KEY (`idnotas`);
-
---
 -- Índices de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  ADD PRIMARY KEY (`id`);
-
---
--- Índices de tabela `usuarios`
---
-ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -225,7 +180,7 @@ ALTER TABLE `vendas`
 -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_clientes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_clientes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de tabela `intePV`
@@ -234,22 +189,10 @@ ALTER TABLE `intePV`
   MODIFY `idintePV` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
--- AUTO_INCREMENT de tabela `notas`
---
-ALTER TABLE `notas`
-  MODIFY `idnotas` int(50) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
-
---
--- AUTO_INCREMENT de tabela `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `vendas`
