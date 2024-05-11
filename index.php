@@ -7,10 +7,15 @@
     <title>Recomex | Etiquetas em São Luís</title>
     <link rel="stylesheet" href="../sce_mvp/styles/style-home.css">
     <link rel="icon" type="image/x-icon" href="../sce_mvp/img/logo_recomex_apenas_R.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
 </head>
 
 <body>
-    <nav id="nav-home">
+    <nav id="nav-home" class="">
 
         <a class="button-logo" href="#">
             <img width="150vw" height="40vh" src="../sce_mvp/img/logo_recomex2.png" alt="">
@@ -38,16 +43,13 @@
         </a>
     </nav>
 
-    <section id="banner">
+    <section id="banner" class="">
         <div class="banner-test">
             <img src="../sce_mvp/img/banner-test.png" alt="">
         </div>
     </section>
 
-
-
-
-    <div class="slide">
+    <div class="slide animate__animated animate__backInRight">
         <section id="section-products-home">
 
             <div id="left" class="seta_da_esquerda control arrow-left">
@@ -155,7 +157,7 @@
     </div>
 
 
-    <section id="about-home">
+    <section id="about-home" class="wow animate__animated animate__backInLeft ">
         <div class="about-content">
             <img src="../sce_mvp/img/loja.png" alt="">
             <h3 class="about-title">Loja de Etiquetas em São Luis</h3>
@@ -183,10 +185,7 @@
 
 
 
-
-
-
-    <section id="location-home">
+    <section id="location-home" class="wow animate__animated animate__backInRight">
         <div class="google-maps-home">
             <p>Localização</p>
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1992.9048207841915!2d-44.20485355619896!3d-2.5686093992341026!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7f691225f9512e9%3A0x313e0a351503da42!2sRecomex!5e0!3m2!1spt-BR!2sbr!4v1698089433956!5m2!1spt-BR!2sbr" width="1000" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -195,10 +194,8 @@
 
 
 
-
-
     <footer id="footer-home">
-        <div class="footer_superior">
+        <div class="footer_superior wow animate__animated animate__backInLeft ">
             <div class="infor_cont">
                 <h3>Informações/Contatos</h3>
                 <div class="rua">
@@ -231,7 +228,7 @@
                 <h6>Developed by LTD</h6>
             </div>
         </div>
-        <div class="footer_inferior">
+        <div class="footer_inferior wow animate__animated animate__backInRight ">
             <h5>Recomex | Etiquetas em São Luís</h5>
             <h6>Equipe de desenvolvimento da Estácio de Sá | Laboratório de Transformação Digital</h6>
         </div>

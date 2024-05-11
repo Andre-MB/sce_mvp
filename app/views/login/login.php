@@ -13,6 +13,7 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
         $senha = $mysqli->real_escape_string($_POST['senha']);
 
         $sql_code = "SELECT * FROM usuarios WHERE email = '$email' LIMIT 1";
+
         $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
 
         $usuario = $sql_query->fetch_assoc();
