@@ -31,3 +31,12 @@ setInterval(function () {
         carousel.scrollLeft = 0;
     }
 }, 3000);
+
+function rolarPagina(paraOnde) {
+    if (paraOnde == "sobre") {
+        window.scroll({
+            top: 930,
+            behavior: "smooth",
+        });
+    }
+}

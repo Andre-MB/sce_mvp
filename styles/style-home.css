@@ -58,6 +58,9 @@ body {
 
 .list {
 	float: right;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .list ul {

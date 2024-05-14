@@ -24,15 +24,14 @@
 
         <div class="list">
             <ul>
-                <li><a href="">Sobre</a></li>
+                <li><a href="#about-home">Sobre</a></li>
             </ul>
 
             <ul>
-                <li><a href="">Localização</li>
+                <li><a href="#location-home">Localização</li>
             </ul>
-
             <ul>
-                <li><a href="">Contato</a></li>
+                <li><a href="#footer-home">Contato</a></li>
             </ul>
         </div>
 
@@ -235,6 +234,7 @@
     </footer>
 
     <script src="../sce_mvp/js/slid.js"></script>
+
 </body>
 
 </html>

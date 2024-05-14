@@ -35,11 +35,16 @@ $quer = mysqli_query($mysqli, $sql_clientes);
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="venda.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="/js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
 </head>
 
 <body>
 
-    <header>
+    <header class="wow animate__animated animate__slideInLeft">
 
         <div class="logo">
             <img src="../../../img/logo_recomex2.png" height="40vh" alt="">
@@ -76,7 +81,7 @@ $quer = mysqli_query($mysqli, $sql_clientes);
     </header>
 
     <main>
-        <div class="container">
+        <div class="container animate__animated animate__slideInRight">
             <nav style="display: flex; justify-content:space-between; ">
                 <div>
                     <button class="btn-add" onclick="document.getElementById('add').style.display='block'">Adicionar produto</button>
@@ -100,13 +105,15 @@ $quer = mysqli_query($mysqli, $sql_clientes);
                     </thead>
                     <tbody>
                         <?php
+                        $cont = 0;
                         while ($data = mysqli_fetch_assoc($query)) {
                             $res = $data['custo'];
                             $re = $data['preco'];
                             $qunat = $data['quantidade'];
                             $id = $data['id'];
+                            $cont += 1;
 
-                            echo "<tr >";
+                            echo "<tr  >";
                             echo "<td class=\"pri\" >"   . $data['id'] . "</td>";
                             echo "<td>"   . $data['nome'] . "</td>";
                             echo "<td>"   . $data['descricao'] . "</td>";

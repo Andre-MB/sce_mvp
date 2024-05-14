@@ -48,6 +48,11 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
     <title>Recomex | Login</title>
     <link rel="stylesheet" href="style-login.css">
     <link rel="icon" type="image/x-icon" href="../../../img/logo_recomex_apenas_R.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="/js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
 </head>
 
 <body>
@@ -69,7 +74,7 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
     <main>
 
         <div class="p">
-            <form action="" method="POST">
+            <form class="wow animate__animated animate__backInLeft " action="" method="POST">
 
                 <h1>Entrar</h1>
 
@@ -90,7 +95,7 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
 
             <div class="l"><span></span></div>
 
-            <img src="../../../img/Rectangle10.png" width=" 400px" height="400px" alt="">
+            <img class="wow animate__animated animate__backInRight" src="../../../img/Rectangle10.png" width=" 400px" height="400px" alt="">
         </div>
 
     </main>

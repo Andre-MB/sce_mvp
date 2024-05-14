@@ -29,7 +29,7 @@ $query = mysqli_query($mysqli, $sql);
 
 <body>
 
-    <header>
+    <header class="wow animate__animated animate__slideInLeft">
 
         <div class="logo">
             <img src="../../../img/logo_recomex2.png" height="40vh" alt="">
@@ -65,7 +65,7 @@ $query = mysqli_query($mysqli, $sql);
 
     </header>
 
-    <main>
+    <main class="animate__animated animate__slideInRight">
         <div class="container" style=" background: white; box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.25)">
             <nav style="display: flex; justify-content:space-between; ">
                 <h3>Meus Clientes</h3>
