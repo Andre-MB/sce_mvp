@@ -25,7 +25,7 @@ $query = mysqli_query($mysqli, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recomex | Histórico Vendas</title>
     <link rel="stylesheet" href="setyle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /> -->
     <link rel="icon" type="image/x-icon" href="../../../img/logo_recomex_apenas_R.png">
 </head>
 
