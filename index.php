@@ -15,6 +15,7 @@
 </head>
 
 <body>
+
     <nav id="nav-home" class="">
 
         <a class="button-logo" href="#">
@@ -23,16 +24,23 @@
 
 
         <div class="list">
+
             <ul>
-                <li><a href="#about-home">Sobre</a></li>
+                <li><a href="#">Home</li>
+            </ul>
+
+            <ul>
+                <li><a onclick="rolarPagina('sobre')">Sobre</a></li>
             </ul>
 
             <ul>
                 <li><a href="#location-home">Localização</li>
             </ul>
+
             <ul>
                 <li><a href="#footer-home">Contato</a></li>
             </ul>
+
         </div>
 
         <a href="../sce_mvp/app/views/login/login.php">
@@ -40,9 +48,10 @@
                 Entrar
             </button>
         </a>
+
     </nav>
 
-    <section id="banner" class="">
+    <section id="banner">
         <div class="banner-test">
             <img src="../sce_mvp/img/banner-test.png" alt="">
         </div>
@@ -155,7 +164,6 @@
         </section>
     </div>
 
-
     <section id="about-home" class="wow animate__animated animate__backInLeft ">
         <div class="about-content">
             <img src="../sce_mvp/img/loja.png" alt="">
@@ -182,16 +190,12 @@
         </div>
     </section>
 
-
-
-    <section id="location-home" class="wow animate__animated animate__backInRight">
+    <section id="location-home" class="wow animate__animated animate__backInRight ">
         <div class="google-maps-home">
             <p>Localização</p>
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1992.9048207841915!2d-44.20485355619896!3d-2.5686093992341026!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7f691225f9512e9%3A0x313e0a351503da42!2sRecomex!5e0!3m2!1spt-BR!2sbr!4v1698089433956!5m2!1spt-BR!2sbr" width="1000" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
-
-
 
     <footer id="footer-home">
         <div class="footer_superior wow animate__animated animate__backInLeft ">

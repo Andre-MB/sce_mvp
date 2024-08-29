@@ -73,6 +73,7 @@ body {
 	color: white;
 	text-decoration: none;
 	transition: font-size 350ms;
+	cursor: pointer;
 }
 
 .list a:active {
@@ -257,4 +258,21 @@ body {
 	text-align: center;
 	color: #fff;
 	background-color: #4d0000;
+}
+
+/* scroll */
+html ::-webkit-scrollbar {
+	width: 20px;
+}
+
+html ::-webkit-scrollbar-thumb {
+	border-radius: 50px;
+	border: 4px solid #ededed;
+	background: #6f0000;
+}
+
+html ::-webkit-scrollbar-track {
+	/* fundo */
+	border-radius: 50px;
+	background: #ededed;
 }
