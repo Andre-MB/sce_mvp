@@ -11,6 +11,7 @@ body {
 	height: auto;
 	width: auto;
 	overflow-x: hidden;
+	scroll-behavior: smooth;
 }
 
 /* nav */
@@ -74,10 +75,12 @@ body {
 	text-decoration: none;
 	transition: font-size 350ms;
 	cursor: pointer;
+	scroll-behavior: smooth;
 }
 
 .list a:active {
 	opacity: 0.8;
+	scroll-behavior: smooth;
 }
 
 .list a:hover {

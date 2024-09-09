@@ -44,6 +44,16 @@ function rolarPagina(paraOnde) {
             top: alturaTela - alturadoHeader.clientHeight,
             behavior: "smooth",
         });
+    } else if (paraOnde == "local") {
+        window.scroll({
+            top: alturaTela * 2,
+            behavior: "smooth",
+        });
+    } else {
+        window.scroll({
+            top: 0,
+            behavior: "smooth",
+        });
     }
 }
 

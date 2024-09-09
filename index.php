@@ -26,7 +26,7 @@
         <div class="list">
 
             <ul>
-                <li><a href="#">Home</li>
+                <li><a onclick="rolarPagina('home')">Home</li>
             </ul>
 
             <ul>
@@ -34,11 +34,11 @@
             </ul>
 
             <ul>
-                <li><a href="#location-home">Localização</li>
+                <li><a onclick="rolarPagina('local')">Localização</li>
             </ul>
 
             <ul>
-                <li><a href="#footer-home">Contato</a></li>
+                <li><a onclick="rolarPagina('local')">Contato</a></li>
             </ul>
 
         </div>
